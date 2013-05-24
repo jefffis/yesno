@@ -1,0 +1,37 @@
+<%= form_for(@q) do |f| %>
+  <% if @q.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@q.errors.count, "error") %> prohibited this q from being saved:</h2>
+
+      <ul>
+      <% @q.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :image_yes, 'Add an image for Yes?' %>
+    <%= f.file_field :image_yes %>
+  </div>
+  <div class="field">
+    <%= f.label :image_no, 'Add an image for No?' %>
+    <%= f.file_field :image_no %>
+  </div>
+  <!--<div class="field">
+    <%#= f.label :votes %><br />
+    <%#= f.number_field :votes %>
+  </div>-->
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

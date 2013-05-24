@@ -1,0 +1,27 @@
+<h1>Listing qs</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Votes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @qs.each do |q| %>
+  <tr>
+    <td><%= q.title %></td>
+    <td><%= q.description %></td>
+    <td><%= q.votes %></td>
+    <td><%= link_to 'Show', q %></td>
+    <td><%= link_to 'Edit', edit_q_path(q) %></td>
+    <td><%= link_to 'Destroy', q, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Q', new_q_path %>

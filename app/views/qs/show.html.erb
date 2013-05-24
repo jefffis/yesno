@@ -1,0 +1,70 @@
+<!--<div class="voted" id="voted">
+	<h2>Thanks for voting.</h2>
+</div>-->
+
+<p id="notice"><%= notice %></p>
+
+<h1 data-title="<%= @q.title.parameterize %>"><%= @q.title %></h1>
+<p><%= @q.description.html_safe %></p>
+<hr />
+
+<div class="wrap cf">
+	<div class="votable" id="yes">
+		<% if @q.votes == '0' %>
+		<div class="votes yes">
+			<div>
+				<%= @q.votes %><% if @q.votes > 1 || @q.votes == 0 %> votes<% else %> vote<% end %>
+			</div>
+		</div>
+		<% end %>
+		<h2<% if @q.image_yes.blank? %> class="no-img"<% end %>>Yes
+			<span><% if @q.votes < 1 %>No<% else %><%= @q.votes %><% end %><% if @q.votes > 1 || @q.votes == 0 %> votes<% else %> vote<% end %></span>
+		</h2>
+		<% if !@q.image_yes.blank? %><%= image_tag @q.image_yes.url(:large) %>
+		<% else %>
+		<div class="img yes"></div>
+		<% end %>
+	</div>
+	<div class="votable" id="no">
+		<% if @q.votes_no == '0' %>
+		<div class="votes no">
+			<div>
+				<%= @q.votes_no %><% if @q.votes_no > 1 || @q.votes_no == 0 %> votes<% else %> vote<% end %>
+			</div>
+		</div>
+		<% end %>
+		<h2<% if @q.image_no.blank? %> class="no-img"<% end %>>No
+			<span><% if @q.votes_no < 1 %>No<% else %><%= @q.votes_no %><% end %><% if @q.votes_no > 1 || @q.votes_no == 0 %> votes<% else %> vote<% end %></span>
+		</h2>
+		<% if !@q.image_no.blank? %><%= image_tag @q.image_no.url(:large) %>
+		<% else %>
+		<div class="img no"></div>
+		<% end %>
+	</div>
+</div>
+
+<%
+yes_v = @q.votes
+no_v = @q.votes_no
+if yes_v >= 0 && no_v >= 0
+total = yes_v + no_v
+yes = (yes_v.to_f / total.to_f) * 100
+no = (no_v.to_f / total.to_f) * 100
+%>
+<div class="overall">
+	<% if yes > no %>
+	<%= yes.to_s.split('.')[0] %>% <span>of peeps say yes.</span>
+	<% else %>
+	<%= no.to_s.split('.')[0] %>% <span>of peeps say no.</span>
+	<% end %>
+</div>
+<% end %>
+
+<%= form_for(@q) do |q| %>
+	<%= q.hidden_field :votes %>
+	<%= q.hidden_field :votes_no %>
+<% end %>
+
+<div class="center">
+	<%= link_to 'Edit', edit_q_path(@q) %> | <%= link_to 'Back', qs_path %>
+</div>
