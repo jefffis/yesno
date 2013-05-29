@@ -26,8 +26,8 @@ $(function(){
 	//console.log($.cookie($h1_title));
 
 	$yes.on('click',function(){
-		if($.cookie($h1_title)){
-			//return;
+		if($yes.hasClass('ivoted')){
+			return;
 		}
 		var $this = $(this);
 		$vote_yes_total = $vote_yes_total + 1;
@@ -38,8 +38,8 @@ $(function(){
 	});
 
 	$no.on('click',function(){
-		if($.cookie($h1_title)){
-			//return;
+		if($no.hasClass('ivoted')){
+			return;
 		}
 		var $this = $(this);
 		$vote_no_total = $vote_no_total + 1;

@@ -1,6 +1,8 @@
-<!--<div class="voted" id="voted">
-	<h2>Thanks for voting.</h2>
-</div>-->
+<% if cookies[@q.title.parameterize] %>
+<div class="voted show" id="voted">
+	<h2>You voted <%= cookies[@q.title.parameterize] %> on whether you think <span><%= @q.title %></span> is true or not; thx!</h2>
+</div>
+<% end %>
 
 <p id="notice"><%= notice %></p>
 
@@ -9,7 +11,7 @@
 <hr />
 
 <div class="wrap cf">
-	<div class="votable" id="yes">
+	<div class="votable<% if cookies[@q.title.parameterize] %> ivoted<% end %>" id="yes">
 		<% if @q.votes == '0' %>
 		<div class="votes yes">
 			<div>
@@ -25,7 +27,7 @@
 		<div class="img yes"></div>
 		<% end %>
 	</div>
-	<div class="votable" id="no">
+	<div class="votable<% if cookies[@q.title.parameterize] %> ivoted<% end %>" id="no">
 		<% if @q.votes_no == '0' %>
 		<div class="votes no">
 			<div>
