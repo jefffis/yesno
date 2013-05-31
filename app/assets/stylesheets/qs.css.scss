@@ -193,6 +193,9 @@ a.btn {
 			left: 1em;
 			border: 2px solid rgba(0,0,0,0.15);
 			box-shadow: 0 0 0 3px rgba(0,0,0,0.2);
+			&:hover {
+
+			}
 		}
 
 	}
@@ -226,7 +229,7 @@ a.btn {
 
 	&.no {
 		.icon-ok {
-			color: lighten($main-blue, 15%);
+			color: $main-blue;
 		}
 	}
 
@@ -310,6 +313,22 @@ form {
 	}
 }
 
+.listings {
+	margin: 0 auto;
+	padding: 0;
+	max-width: 50em;
+	li {
+		list-style: none;
+		h1 a {
+			color: $main-pink;
+			text-decoration: none;
+		}
+		p {
+			max-width: 40em;
+		}
+	}
+}
+
 .voted {
 	background: rgba(255,255,0,0.25);
 	padding: 1em;
@@ -354,7 +373,13 @@ form {
 				//top: 37px;
 			}
 		}
+		.icon-ok.notyet {
+			font-size: 2em;
+			top: 1em;
+			left: 1em;
+		}
 	}
+
 	.votes {
 		/*width: 45%;
 		margin: 0 2em;

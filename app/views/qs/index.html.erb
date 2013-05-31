@@ -1,13 +1,14 @@
-<h1>Listing qs</h1>
-<div>
+<!--<h1>Listing qs</h1>-->
+<ul class="listings">
 <% @qs.each do |q| %>
-  <%= q.title %><br />
-  <%= q.description %><br />
-  <%= q.votes %><br />
-  <%= link_to 'Show', q %> <br />
-  <%= link_to 'Edit', edit_q_path(q) %> <br />
-  <%= link_to 'Destroy', q, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <li>
+    <h1><%= link_to q.title, q %></h1>
+    <p><%= q.description %></p>
+    <%#= q.votes %> 
+    <%#= link_to 'Edit', edit_q_path(q) %> 
+    <%#= link_to 'Destroy', q, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </li>
 <% end %>
-</div>
+</ul>
 
 <%= link_to 'New Q', new_q_path %>
