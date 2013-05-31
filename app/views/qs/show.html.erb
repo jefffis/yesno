@@ -1,6 +1,6 @@
 <% if cookies[@q.title.parameterize] %>
 <div class="voted show" id="voted">
-	<h2>You voted <%= cookies[@q.title.parameterize] %> on whether you think <span><%= @q.title %></span> is true or not; thx!</h2>
+	<h2>You voted <span><%= cookies[@q.title.parameterize] %></span> on whether you think <span><%= @q.title %></span> is true or not; thx!</h2>
 </div>
 <% end %>
 
@@ -11,7 +11,22 @@
 <hr />
 
 <div class="wrap cf">
-	<div class="votable<% if cookies[@q.title.parameterize] %> ivoted<% end %>" id="yes">
+	<div class="votable yes<% if cookies[@q.title.parameterize] %> ivoted<% end %><% if @q.image_yes.blank? %> no-img-yes<% end %>" id="yes"<% if !@q.image_yes.blank? %> style="background-image:url(<%= @q.image_yes.url(:large) %>); background-size: cover;"<% end %>>
+		<% if cookies[@q.title.parameterize] %>
+		<% if cookies[@q.title.parameterize] == 'yes' %>
+			<div class="icon-wrap"><div><span class="icon-ok"></span></div></div>
+		<% else %>
+			<div class="icon-wrap"><div></div></div>
+		<% end %>
+			<div class="h-wrap under">
+				<div>
+					<h2<% if @q.image_yes.blank? %> class="no-img"<% end %>>
+						<span><% if @q.votes < 1 %>No<% else %><%= @q.votes %><% end %><% if @q.votes > 1 || @q.votes == 0 %> votes<% else %> vote<% end %></span>
+					</h2>
+				</div>
+			</div>
+		<% else %>
+		<span class="icon-ok notyet"></span>
 		<% if @q.votes == '0' %>
 		<div class="votes yes">
 			<div>
@@ -19,15 +34,31 @@
 			</div>
 		</div>
 		<% end %>
-		<h2<% if @q.image_yes.blank? %> class="no-img"<% end %>>Yes
-			<span><% if @q.votes < 1 %>No<% else %><%= @q.votes %><% end %><% if @q.votes > 1 || @q.votes == 0 %> votes<% else %> vote<% end %></span>
-		</h2>
-		<% if !@q.image_yes.blank? %><%= image_tag @q.image_yes.url(:large) %>
-		<% else %>
-		<div class="img yes"></div>
+		<div class="h-wrap">
+			<div>
+				<h2<% if @q.image_yes.blank? %> class="no-img"<% end %>>Yes
+					<span><% if @q.votes < 1 %>No<% else %><%= @q.votes %><% end %><% if @q.votes > 1 || @q.votes == 0 %> votes<% else %> vote<% end %></span>
+				</h2>
+				</div>
+			</div>
 		<% end %>
 	</div>
-	<div class="votable<% if cookies[@q.title.parameterize] %> ivoted<% end %>" id="no">
+	<div class="votable no<% if cookies[@q.title.parameterize] %> ivoted<% end %><% if @q.image_no.blank? %> no-img-no<% end %>" id="no"<% if !@q.image_no.blank? %>  style="background-image:url(<%= @q.image_no.url(:large) %>); background-size: cover;"<% end %>>
+		<% if cookies[@q.title.parameterize] %>
+		<% if cookies[@q.title.parameterize] == 'no' %>
+			<div class="icon-wrap"><div><span class="icon-ok"></span></div></div>
+		<% else %>
+			<div class="icon-wrap"><div></div></div>
+		<% end %>
+			<div class="h-wrap under">
+				<div>
+					<h2<% if @q.image_no.blank? %> class="no-img"<% end %>>
+						<span><% if @q.votes_no < 1 %>No<% else %><%= @q.votes_no %><% end %><% if @q.votes_no > 1 || @q.votes_no == 0 %> votes<% else %> vote<% end %></span>
+					</h2>
+				</div>
+			</div>
+		<% else %>
+		<span class="icon-ok notyet"></span>
 		<% if @q.votes_no == '0' %>
 		<div class="votes no">
 			<div>
@@ -35,12 +66,13 @@
 			</div>
 		</div>
 		<% end %>
-		<h2<% if @q.image_no.blank? %> class="no-img"<% end %>>No
-			<span><% if @q.votes_no < 1 %>No<% else %><%= @q.votes_no %><% end %><% if @q.votes_no > 1 || @q.votes_no == 0 %> votes<% else %> vote<% end %></span>
-		</h2>
-		<% if !@q.image_no.blank? %><%= image_tag @q.image_no.url(:large) %>
-		<% else %>
-		<div class="img no"></div>
+		<div class="h-wrap">
+				<div>
+					<h2<% if @q.image_no.blank? %> class="no-img"<% end %>>No
+						<span><% if @q.votes_no < 1 %>No<% else %><%= @q.votes_no %><% end %><% if @q.votes_no > 1 || @q.votes_no == 0 %> votes<% else %> vote<% end %></span>
+					</h2>
+				</div>
+			</div>
 		<% end %>
 	</div>
 </div>
@@ -56,8 +88,10 @@ no = (no_v.to_f / total.to_f) * 100
 <div class="overall">
 	<% if yes > no %>
 	<%= yes.to_s.split('.')[0] %>% <span>of peeps say yes.</span>
-	<% else %>
+	<% elsif no > yes %>
 	<%= no.to_s.split('.')[0] %>% <span>of peeps say no.</span>
+	<% else %>
+	<span>The ppl are</span> split 50/50.
 	<% end %>
 </div>
 <% end %>
@@ -68,5 +102,6 @@ no = (no_v.to_f / total.to_f) * 100
 <% end %>
 
 <div class="center">
-	<%= link_to 'Edit', edit_q_path(@q) %> | <%= link_to 'Back', qs_path %>
+	<%= link_to 'Edit', edit_q_path(@q) %>
+	<%= link_to 'Home', qs_path, :class => 'btn' %>
 </div>
