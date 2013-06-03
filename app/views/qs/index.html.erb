@@ -2,13 +2,19 @@
 <ul class="listings">
 <% @qs.each do |q| %>
   <li>
-    <h1><%= link_to q.title, q %></h1>
-    <p><%= q.description %></p>
+    <%= link_to(q) do %>
+    <h1><%= q.title %></h1>
+    <!--<p><%= q.description %></p>-->
     <%#= q.votes %> 
     <%#= link_to 'Edit', edit_q_path(q) %> 
     <%#= link_to 'Destroy', q, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </li>
 <% end %>
 </ul>
 
-<%= link_to 'New Q', new_q_path %>
+<div class="center">
+  <%= link_to(new_q_path) do %>
+  <span class="icon-plus"></span>
+  <% end %>
+</div>

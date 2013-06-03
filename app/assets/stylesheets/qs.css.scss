@@ -24,6 +24,10 @@ html {
 	overflow-x: hidden;
 	color: #555;
 	border: 5px solid #555;
+	//border-top-color: $main-pink;
+	//border-bottom-color: $main-pink;
+	//border-right-color: $main-blue;
+	//border-left-color: $main-blue;
 }
 
 body {
@@ -42,7 +46,7 @@ p, li {
 
 header {
 	width: 100%;
-	display: none;
+	//display: none;
 	img {
 		display: block;
 		margin: 0 auto;
@@ -53,7 +57,7 @@ header {
 	h2 {
 		margin: 0 0 1em;
 		line-height: 1;
-		opacity: .5;
+		//opacity: .5;
 		letter-spacing: -2px;
 		font-weight: normal;
 		text-align: center;
@@ -61,9 +65,42 @@ header {
 		a{
 			text-decoration: none;
 			color: #555;
+			position: relative;
+			display: block;
+			&:after {
+				content: "";
+				display: block;
+				height: 3px;
+				width: 4.4em;
+				background: #555;
+				opacity: .2;
+				margin: 1em auto 0;
+			}
+			strong {
+				display: inline-block;
+				-webkit-transition: all .2s ease-in-out;
+				-moz-transition: all .2s ease-in-out;
+				transition: all .2s ease-in-out;
+					&:nth-child(1):hover {
+					color: $main-pink;
+				}
+				&:nth-child(3):hover {
+					color: $main-blue;
+				}
+			}
 		}
 		span {
-			font-weight: bold;
+			//font-weight: bold;
+			font-size: 80%;
+			position: relative;
+			top: 0;
+			left: 2px;
+			opacity: .5;
+		}
+		em {
+			display: inline-block;
+			padding: 0 .25em;
+			font-style: normal;
 		}
 	}
 }
@@ -81,6 +118,7 @@ a.btn {
 }
 
 .main {
+	font-size: 85%;
 	h1 {
 		text-align: center;
 		font-size: 2.5em;
@@ -93,7 +131,7 @@ a.btn {
 	p {
 		text-align: center;
 		padding: 0 2em;
-		max-width: 30em;
+		max-width: 37em;
 		margin: 0 auto;
 	}
 	hr {
@@ -112,6 +150,25 @@ a.btn {
 
 .center {
 	text-align: center;
+	a {
+		display: inline-block;
+		padding: .5em;
+		//background: $main-pink;
+		color: #555;
+		line-height: 1;
+		text-decoration: none;
+		font-size: 1.5em;
+		position: relative;
+		-webkit-transition: all .2s ease-in-out;
+		-moz-transition: all .2s ease-in-out;
+		transition: all .2s ease-in-out;
+		&:hover {
+			color: $main-pink;
+		}
+		&:active {
+			top: 1px;
+		}
+	}
 }
 
 .votes {
@@ -130,6 +187,7 @@ a.btn {
 	clear: both;
 	overflow: hidden;
 	position: relative;
+	box-shadow: 0 0 1px rgba(0,0,0,0.3) inset, 0 1px 20px rgba(0,0,0,0.2) inset;
 	//padding: .5em;
 	//border: .5em solid white;
 	//background: white;
@@ -171,12 +229,12 @@ a.btn {
 			z-index: 9;
 		}
 	}
-	.icon-ok {
+	.your-vote, .not {
 		color: lighten($main-pink, 15%);
 		//width: auto;
 		display: inline-block;
 		text-align: center;
-		padding: .35em;
+		padding: .35em .45em;
 		margin: 0;
 		background: #040407;
 		border-radius: 100%;
@@ -187,7 +245,7 @@ a.btn {
 
 		&.notyet {
 			position: absolute;
-			font-size: 1.25em;
+			font-size: 1.75em;
 			background: white;
 			top: 1em;
 			left: 1em;
@@ -198,6 +256,11 @@ a.btn {
 			}
 		}
 
+	}
+
+	.not {
+		//padding: .35em .45em;
+		color: rgba(255,255,255,0.5);
 	}
 
 	&:hover {
@@ -216,7 +279,9 @@ a.btn {
 				font-size: 1em;
 			}
 		}
-
+		&:hover {
+			opacity: 1;
+		}
 	}
 
 	&.no-img-yes {
@@ -228,7 +293,7 @@ a.btn {
 	}
 
 	&.no {
-		.icon-ok {
+		.your-vote {
 			color: $main-blue;
 		}
 	}
@@ -282,10 +347,11 @@ a.btn {
 	left: 0;
 	width: 100%;*/
 	//background: $main-pink;
-	background: #555;
+	background: darken(#efefef, 5%);
+	//background: rgba(255,255,0,0.25);
 	padding: 1em;
 	margin: 2.5em auto;
-	color: white;
+	//color: white;
 	font: bold 100%/1 $sans;
 	text-align: center;
 	span {
@@ -293,43 +359,136 @@ a.btn {
 		font-weight: normal;
 	}
 	max-width: 600px;
+	&.yes {
+		span {
+			color: $main-pink;
+		}
+	}
+	&.no {
+		span {
+			color: darken($main-blue, 25%);
+		}
+	}
 }
 
 form {
 	width: 100%;
-	margin: 0 0 2em;
-	input, textarea {
+	margin: 0 auto 2em;
+	padding: 0 2em;
+	max-width: 35em;
+	input, textarea, .faux-file {
 		width: 100%;
-		margin: 0;
+		margin: .3em 0 0;
 		padding: 1em;
 		border: 0;
-		outline: 0;
+		outline: 3px solid #ccc;
+		-webkit-appearance: none;
+		-webkit-border-radius: 0;
 	}
 	input:focus, textarea:focus {
-		outline: 4px solid #555;
+		outline: 3px solid #555;
 	}
 	.field {
 		padding-bottom: 1em;
 	}
-}
-
-.listings {
-	margin: 0 auto;
-	padding: 0;
-	max-width: 50em;
-	li {
-		list-style: none;
-		h1 a {
-			color: $main-pink;
-			text-decoration: none;
+	label {
+		text-align: center;
+		display: block;
+		padding-bottom: .5em;
+		cursor: pointer;
+	}
+	input[type=submit] {
+		outline: 0;
+		background: $main-pink;
+		color: white;
+		font-weight: bold;
+	}
+	.file {
+		display: none;
+	}
+	.faux-file {
+		text-align: center;
+		padding: 0;
+		.label, .chosen-file {
+			display: block;
+			padding: 1em;
+			cursor: pointer;
+			background: white;
+			&.file {
+				display: none;
+			}
 		}
-		p {
-			max-width: 40em;
+		.chosen-file {
+			background: white;
+			color: $main-pink;
+			&:before {
+				content: "\f00c";
+				font-family: 'FontAwesome';
+				position: relative;
+				left: -3px;
+			}
+		}
+		&:active {
+			outline: 3px solid #555;
 		}
 	}
 }
 
-.voted {
+.listings {
+	margin: 2em auto 1em;
+	padding: 0;
+	max-width: 50em;
+	li {
+		list-style: none;
+		border: 3px solid #ccc;
+		border-left: 0;
+		border-right: 0;
+		border-bottom: 0;
+		h1 {
+			margin: 0;
+		}
+		p {
+			max-width: 40em;
+		}
+
+		&:last-child {
+			border-bottom: 3px solid #ccc;
+		}
+		a {
+			display: block;
+			padding: 2em 1em;
+			color: $main-pink;
+			text-decoration: none;
+			background: rgba(0,0,0,0.075);
+			-webkit-transition: all .2s ease-in-out;
+			-moz-transition: all .2s ease-in-out;
+			transition: all .2s ease-in-out;
+			p {
+				color: #555;
+			}
+			&:hover {
+				background: $main-pink;
+				color: white;
+				h1, p {
+					color: white;
+				}
+			}
+			&:active {
+				padding: 2.05em 1em 1.95em;
+				box-shadow: 0 0 1px rgba(0,0,0,0.3) inset, 0 1px 20px rgba(0,0,0,0.2) inset;
+			}
+		}
+		&:nth-child(even) a {
+			background: white;
+		}
+		&:nth-child(even) a:hover {
+			background: $main-blue;
+		}
+
+	}
+}
+
+.voted, #notice, #error_explanation {
 	background: rgba(255,255,0,0.25);
 	padding: 1em;
 	text-align: center;
@@ -342,10 +501,31 @@ form {
 		font-weight: normal;
 		font-size: 125%;
 		color: rgba(200,100,25,0.65);
+		letter-spacing: normal;
 		span {
 			font-weight: bold;
 		}
 	}
+}
+#error_explanation {
+	display: block;
+	margin: 0 0 2em;
+	//outline: 3px solid red;
+	color: rgba(200,100,25,0.65);
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		list-style: none;
+		display: inline-block;
+	}
+	h2 {
+		display: none;
+	}
+}
+.field_with_errors input {
+	outline: 3px solid red;
 }
 
 @media screen and (min-width:50em){
@@ -354,6 +534,9 @@ form {
 		top: 2em;
 		left: 2em;
 		width: auto;*/
+	}
+	.main {
+		font-size: 100%;
 	}
 	.votable {
 		width: 50%;
@@ -373,7 +556,7 @@ form {
 				//top: 37px;
 			}
 		}
-		.icon-ok.notyet {
+		.your-vote.notyet {
 			font-size: 2em;
 			top: 1em;
 			left: 1em;
@@ -390,8 +573,13 @@ form {
 		}*/
 	}
 	form {
-		width: 40em;
-		margin: 0 auto 2em;
+		padding: 0;
+	}
+	.listings {
+		li {
+			border: 3px solid #ccc;
+			border-bottom: 0;
+		}
 	}
 }
 

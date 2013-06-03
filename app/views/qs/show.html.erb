@@ -14,9 +14,9 @@
 	<div class="votable yes<% if cookies[@q.title.parameterize] %> ivoted<% end %><% if @q.image_yes.blank? %> no-img-yes<% end %>" id="yes"<% if !@q.image_yes.blank? %> style="background-image:url(<%= @q.image_yes.url(:large) %>); background-size: cover;"<% end %>>
 		<% if cookies[@q.title.parameterize] %>
 		<% if cookies[@q.title.parameterize] == 'yes' %>
-			<div class="icon-wrap"><div><span class="icon-ok"></span></div></div>
+			<div class="icon-wrap"><div><span class="your-vote icon-thumbs-up"></span></div></div>
 		<% else %>
-			<div class="icon-wrap"><div></div></div>
+			<div class="icon-wrap"><div><span class="not icon-thumbs-down"></span></div></div>
 		<% end %>
 			<div class="h-wrap under">
 				<div>
@@ -26,7 +26,7 @@
 				</div>
 			</div>
 		<% else %>
-		<span class="icon-ok notyet"></span>
+		<span class="your-vote icon-thumbs-up notyet"></span>
 		<% if @q.votes == '0' %>
 		<div class="votes yes">
 			<div>
@@ -46,9 +46,9 @@
 	<div class="votable no<% if cookies[@q.title.parameterize] %> ivoted<% end %><% if @q.image_no.blank? %> no-img-no<% end %>" id="no"<% if !@q.image_no.blank? %>  style="background-image:url(<%= @q.image_no.url(:large) %>); background-size: cover;"<% end %>>
 		<% if cookies[@q.title.parameterize] %>
 		<% if cookies[@q.title.parameterize] == 'no' %>
-			<div class="icon-wrap"><div><span class="icon-ok"></span></div></div>
+			<div class="icon-wrap"><div><span class="your-vote icon-thumbs-up"></span></div></div>
 		<% else %>
-			<div class="icon-wrap"><div></div></div>
+			<div class="icon-wrap"><div><span class="not icon-thumbs-down"></span></div></div>
 		<% end %>
 			<div class="h-wrap under">
 				<div>
@@ -58,7 +58,7 @@
 				</div>
 			</div>
 		<% else %>
-		<span class="icon-ok notyet"></span>
+		<span class="your-vote icon-thumbs-up notyet"></span>
 		<% if @q.votes_no == '0' %>
 		<div class="votes no">
 			<div>
@@ -85,7 +85,14 @@ total = yes_v + no_v
 yes = (yes_v.to_f / total.to_f) * 100
 no = (no_v.to_f / total.to_f) * 100
 %>
+<% if yes_v == 0 && no_v == 0 %>
+<%#= yes_v %>
+<%#= no_v %>
 <div class="overall">
+	<span>We got</span> no votes <span>yet, add yours?</span>
+</div>
+<% else %>
+<div class="overall<% if yes > no %> yes<% elsif no > yes %> no<% end %>">
 	<% if yes > no %>
 	<%= yes.to_s.split('.')[0] %>% <span>of peeps say yes.</span>
 	<% elsif no > yes %>
@@ -95,6 +102,7 @@ no = (no_v.to_f / total.to_f) * 100
 	<% end %>
 </div>
 <% end %>
+<% end %>
 
 <%= form_for(@q) do |q| %>
 	<%= q.hidden_field :votes %>
@@ -102,6 +110,13 @@ no = (no_v.to_f / total.to_f) * 100
 <% end %>
 
 <div class="center">
-	<%= link_to 'Edit', edit_q_path(@q) %>
-	<%= link_to 'Home', qs_path, :class => 'btn' %>
+	<%= link_to(edit_q_path(@q)) do %>
+	<span class="icon-pencil"></span>
+	<% end %>
+	<%= link_to(new_q_path) do %>
+	<span class="icon-plus"></span>
+	<% end %>
+	<%= link_to(qs_path) do %>
+	<span class="icon-home"></span>
+	<% end %>
 </div>

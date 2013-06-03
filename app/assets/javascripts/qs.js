@@ -19,6 +19,10 @@ $(function(){
 	var $h1_title = $h1.data('title');
 	var $voted = $('#voted');
 
+	// find file inputs
+	var $files = $('input[type=file]').addClass('file');
+	var $file_labels = $files.prev('label').addClass('file');
+
 	if($.cookie($h1_title)){
 		//$voted.addClass('show');
 	}
@@ -47,6 +51,26 @@ $(function(){
 		$.post($form_url, $form.serialize());
 		SetCookie($h1_title,'no');
 		location.reload();
+	});
+
+	// wrap file inputs in clickable div with label text
+	$files.each(function(){
+		var $this = $(this);
+		var $this_text = $this.prev('label').text();
+		var $this_id = $this.attr('id');
+		$this.after('<div class="faux-file"><span class="label" data-id="'+$this_id+'">'+$this_text+'</span></div>');
+	});
+	$('.label').on('click',function(){
+		var $this = $(this);
+		var $this_id = $this.data('id');
+		$('#'+$this_id).click();
+	});
+	$files.on('change',function(){
+		var $this = $(this);
+		if($this.val()!=''){
+			$this.next('.faux-file').find('.label').addClass('file');
+			$this.next('.faux-file').append('<span class="chosen-file">'+$this.val()+'</span>');
+		}
 	});
 
 });

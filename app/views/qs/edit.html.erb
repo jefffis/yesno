@@ -1,5 +1,10 @@
-<h1>Edit this yesno</h1>
+<h1>Edit <span><%= @q.title %></span></h1>
 <%= render 'form' %>
 <div class="center">
-	<%= link_to 'Show', @q %> | <%= link_to 'Back', qs_path %>
+	<%= link_to(@q) do %>
+	<span class="icon-arrow-left"></span>
+	<% end %>
+	<%= link_to(qs_path) do %>
+	<span class="icon-home"></span>
+	<% end %>
 </div>
