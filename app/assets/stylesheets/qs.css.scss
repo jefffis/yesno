@@ -62,7 +62,7 @@ header {
 		font-weight: normal;
 		text-align: center;
 
-		a{
+		a {
 			text-decoration: none;
 			color: #555;
 			position: relative;
@@ -78,10 +78,10 @@ header {
 			}
 			strong {
 				display: inline-block;
-				-webkit-transition: all .2s ease-in-out;
-				-moz-transition: all .2s ease-in-out;
-				transition: all .2s ease-in-out;
-					&:nth-child(1):hover {
+				//-webkit-transition: all .2s ease-in-out;
+				//-moz-transition: all .2s ease-in-out;
+				//transition: all .2s ease-in-out;
+				&:nth-child(1):hover {
 					color: $main-pink;
 				}
 				&:nth-child(3):hover {
@@ -150,6 +150,7 @@ a.btn {
 
 .center {
 	text-align: center;
+	font-family: $sans;
 	a {
 		display: inline-block;
 		padding: .5em;
@@ -159,15 +160,26 @@ a.btn {
 		text-decoration: none;
 		font-size: 1.5em;
 		position: relative;
-		-webkit-transition: all .2s ease-in-out;
-		-moz-transition: all .2s ease-in-out;
-		transition: all .2s ease-in-out;
+		//-webkit-transition: all .2s ease-in-out;
+		//-moz-transition: all .2s ease-in-out;
+		//transition: all .2s ease-in-out;
 		&:hover {
 			color: $main-pink;
 		}
 		&:active {
 			top: 1px;
 		}
+		span {
+			position: relative;
+			top: 1px;
+		}
+	}
+	.btn {
+		display: inline-block;
+		background: $main-blue;
+		padding: .5em;
+		color: white;
+		text-shadow: 0 1px 0 rgba(0,0,0,0.1), 0 2px 1px rgba(0,0,0,0.05);
 	}
 }
 
@@ -221,7 +233,7 @@ a.btn {
 		}
 	}
 	.h-wrap {
-		background: none;
+		background: rgba(0,0,0,0.35);
 		&.under {
 			position: absolute;
 			top: 0;
@@ -251,6 +263,7 @@ a.btn {
 			left: 1em;
 			border: 2px solid rgba(0,0,0,0.15);
 			box-shadow: 0 0 0 3px rgba(0,0,0,0.2);
+			z-index: 20;
 			&:hover {
 
 			}
@@ -295,6 +308,9 @@ a.btn {
 	&.no {
 		.your-vote {
 			color: $main-blue;
+		}
+		.h-wrap {
+			
 		}
 	}
 
@@ -435,15 +451,18 @@ form {
 }
 
 .listings {
-	margin: 2em auto 1em;
+	margin: 2em auto 0;
 	padding: 0;
 	max-width: 50em;
+	border-top: 3px solid #ccc;
+	border-bottom: 3px solid #ccc;
 	li {
 		list-style: none;
 		border: 3px solid #ccc;
-		border-left: 0;
-		border-right: 0;
+		//border-left: 0;
+		//border-right: 0;
 		border-bottom: 0;
+		border-top: 0;
 		h1 {
 			margin: 0;
 		}
@@ -452,7 +471,7 @@ form {
 		}
 
 		&:last-child {
-			border-bottom: 3px solid #ccc;
+			//border-bottom: 3px solid #ccc;
 		}
 		a {
 			display: block;
@@ -460,22 +479,25 @@ form {
 			color: $main-pink;
 			text-decoration: none;
 			background: rgba(0,0,0,0.075);
-			-webkit-transition: all .2s ease-in-out;
+			/*-webkit-transition: all .2s ease-in-out;
 			-moz-transition: all .2s ease-in-out;
-			transition: all .2s ease-in-out;
+			transition: all .2s ease-in-out;*/
 			p {
 				color: #555;
 			}
 			&:hover {
 				background: $main-pink;
 				color: white;
+				//box-shadow: 0 -3px 0 rgba(0,0,0,0.1) inset;
+				//box-shadow: 0 0 5px 0 rgba(0,0,0,0.5) inset;
 				h1, p {
 					color: white;
 				}
 			}
 			&:active {
+				background: darken($main-pink, 20%);
 				padding: 2.05em 1em 1.95em;
-				box-shadow: 0 0 1px rgba(0,0,0,0.3) inset, 0 1px 20px rgba(0,0,0,0.2) inset;
+				//box-shadow: 0 0 5px 0 rgba(0,0,0,0.5) inset;
 			}
 		}
 		&:nth-child(even) a {
@@ -483,6 +505,19 @@ form {
 		}
 		&:nth-child(even) a:hover {
 			background: $main-blue;
+		}
+		&:nth-child(even) a:active {
+			background: $main-blue;
+			background: darken($main-blue, 20%);
+		}
+		&:hover {
+			text-shadow: 0 1px 0 rgba(0,0,0,0.1), 0 2px 1px rgba(0,0,0,0.05);
+			border-left: 3px solid darken($main-pink, 20%);
+			border-right: 3px solid darken($main-pink, 20%);
+		}
+		&:nth-child(even):hover {
+			border-left: 3px solid darken($main-blue, 20%);
+			border-right: 3px solid darken($main-blue, 20%);
 		}
 
 	}
@@ -578,6 +613,7 @@ form {
 	.listings {
 		li {
 			border: 3px solid #ccc;
+			border-top: 0;
 			border-bottom: 0;
 		}
 	}

@@ -19,15 +19,24 @@ $(function(){
 	var $h1_title = $h1.data('title');
 	var $voted = $('#voted');
 
+	var $header_link = $('header h2 a');
+	var $header_link_yes = $header_link.find('[data-vote=yes]');
+	var $header_link_no = $header_link.find('[data-vote=no]');
+
 	// find file inputs
 	var $files = $('input[type=file]').addClass('file');
 	var $file_labels = $files.prev('label').addClass('file');
 
-	if($.cookie($h1_title)){
-		//$voted.addClass('show');
-	}
-
 	//console.log($.cookie($h1_title));
+
+	$header_link_yes.on('click',function(e){
+		e.preventDefault();
+		location.href = '/?v=yes';
+	});
+	$header_link_no.on('click',function(e){
+		e.preventDefault();
+		location.href = '/?v=no';
+	});
 
 	$yes.on('click',function(){
 		if($yes.hasClass('ivoted')){
