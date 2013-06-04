@@ -211,23 +211,39 @@ header {
 }
 
 .vote-again {
-	position: absolute;
-	top: 1em;
-	right: .6em;
+	//position: absolute;
+	//top: 1em;
+	//right: 1em;
 	font-size: 1.25em;
+	text-align: center;
+	em {
+		font-style: normal;
+	}
 	a {
 		color: #555;
 		text-decoration: none;
 		background: none;
-		padding: .55em .65em;
+		margin: 0 0 1em;
+		padding: .25em .75em;
+		display: inline-block;
+		width: auto;
+		background: $main-pink;
+		color: white;
+		text-shadow: 0 1px 0 rgba(0,0,0,0.1), 0 2px 1px rgba(0,0,0,0.05);
+		font-family: $sans;
+		letter-spacing: normal;
 		&:hover {
-			background: $main-pink;
-			color: white;
-			text-shadow: 0 1px 0 rgba(0,0,0,0.1), 0 2px 1px rgba(0,0,0,0.05);
+			background: darken($main-pink, 7%);
 		}
 		&:active {
 			background: darken($main-pink, 20%);
 			color: rgba(255,255,255,0.75);
+		}
+		span {
+			font-size: 90%;
+			&:before {
+				font-weight: bold;
+			}
 		}
 	}
 }
@@ -680,6 +696,17 @@ form {
 
 	.vote-again {
 		position: fixed;
+		top: 1em;
+		right: 1em;
+		em {
+			display: none;
+		}
+		a {
+			font-size: 125%;
+			padding: 2px 6px 5px;
+			line-height: 1;
+			border-radius: 2px;
+		}
 	}
 
 	.votes {

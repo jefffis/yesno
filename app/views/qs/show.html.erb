@@ -109,6 +109,14 @@ no = (no_v.to_f / total.to_f) * 100
 	<%= q.hidden_field :votes_no %>
 <% end %>
 
+<% if @q_next %>
+<div class="vote-again">
+	<%= link_to(@q_next.unique_id) do %>
+	<span class="btn"><span class="icon-repeat"></span> <em>mishmash</em></span>
+	<% end %>
+</div>
+<% end %>
+
 <div class="center">
 	<%= link_to(edit_q_path(@q)) do %>
 	<span class="icon-pencil"></span>
@@ -126,10 +134,3 @@ no = (no_v.to_f / total.to_f) * 100
 	<%= link_to '<span class="icon-share-alt"></span>'.html_safe, ('https://twitter.com/intent/tweet?text='+text+'&url='+url), :target => '_blank' %>
 	<%# end %>
 </div>
-<% if @q_next %>
-<div class="vote-again">
-	<%= link_to(@q_next.unique_id) do %>
-	<span class="icon-repeat"></span>
-	<% end %>
-</div>
-<% end %>
