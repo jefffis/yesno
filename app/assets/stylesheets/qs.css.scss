@@ -66,7 +66,7 @@ header {
 			text-decoration: none;
 			color: #555;
 			position: relative;
-			display: block;
+			display: inline-block;
 			&:after {
 				content: "";
 				display: block;
@@ -81,10 +81,10 @@ header {
 				//-webkit-transition: all .2s ease-in-out;
 				//-moz-transition: all .2s ease-in-out;
 				//transition: all .2s ease-in-out;
-				&:nth-child(1):hover {
+				&:nth-child(1):hover, &:nth-child(1).active {
 					color: $main-pink;
 				}
-				&:nth-child(3):hover {
+				&:nth-child(3):hover, &:nth-child(3).active {
 					color: $main-blue;
 				}
 			}
@@ -103,18 +103,6 @@ header {
 			font-style: normal;
 		}
 	}
-}
-
-a.btn {
-	/*display: block;
-	color: lighten($main-pink, 15%);
-	text-align: center;
-	padding: .35em;
-	margin: 1em auto 0;
-	width: 50%;
-	//background: #040407;
-	text-decoration: none;
-	font-family: $sans;*/
 }
 
 .main {
@@ -180,6 +168,35 @@ a.btn {
 		padding: .5em;
 		color: white;
 		text-shadow: 0 1px 0 rgba(0,0,0,0.1), 0 2px 1px rgba(0,0,0,0.05);
+		&:hover {
+			background: darken($main-blue, 12%);
+		}
+		&:active {
+			color: rgba(255,255,255,0.75);
+			background: darken($main-blue, 20%);
+		}
+	}
+}
+
+.vote-again {
+	position: absolute;
+	top: 1em;
+	right: .6em;
+	font-size: 1.25em;
+	a {
+		color: #555;
+		text-decoration: none;
+		background: none;
+		padding: .55em .65em;
+		&:hover {
+			background: $main-pink;
+			color: white;
+			text-shadow: 0 1px 0 rgba(0,0,0,0.1), 0 2px 1px rgba(0,0,0,0.05);
+		}
+		&:active {
+			background: darken($main-pink, 20%);
+			color: rgba(255,255,255,0.75);
+		}
 	}
 }
 
@@ -422,9 +439,22 @@ form {
 	.file {
 		display: none;
 	}
+	.semi-visible {
+		display: inline;
+		height: 0;
+		width: 0;
+		padding: 0;
+		outline: none;
+		margin: 0;
+		visibility: hidden;
+	}
+	.not-visible {
+		display: none;
+	}
 	.faux-file {
 		text-align: center;
 		padding: 0;
+		position: relative;
 		.label, .chosen-file {
 			display: block;
 			padding: 1em;
@@ -448,10 +478,15 @@ form {
 			outline: 3px solid #555;
 		}
 	}
+	.rmv {
+		position: absolute;
+		top: 1em;
+		right: 1em;
+	}
 }
 
 .listings {
-	margin: 2em auto 0;
+	margin: 2em auto;
 	padding: 0;
 	max-width: 50em;
 	border-top: 3px solid #ccc;
@@ -596,6 +631,10 @@ form {
 			top: 1em;
 			left: 1em;
 		}
+	}
+
+	.vote-again {
+		position: fixed;
 	}
 
 	.votes {

@@ -1,8 +1,20 @@
+require 'uri'
+
 class QsController < ApplicationController
   # GET /qs
   # GET /qs.json
   def index
     @qs = Q.all
+
+    if params[:yes]
+      @qs = Q.all( :select => "*", :conditions => ["votes > votes_no"])
+    end
+
+    if params[:no]
+      @qs = Q.all( :select => "*", :conditions => ["votes < votes_no"])
+    end
+
+    @q_next = Q.offset(rand(Q.count)).first
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +26,8 @@ class QsController < ApplicationController
   # GET /qs/1.json
   def show
     @q = Q.find_by_unique_id(params[:id])
+
+    @q_next = Q.offset(rand(Q.count)).first
 
     respond_to do |format|
       format.html # show.html.erb

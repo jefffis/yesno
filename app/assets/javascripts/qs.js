@@ -31,11 +31,11 @@ $(function(){
 
 	$header_link_yes.on('click',function(e){
 		e.preventDefault();
-		location.href = '/?v=yes';
+		location.href = '/?yes=yesss';
 	});
 	$header_link_no.on('click',function(e){
 		e.preventDefault();
-		location.href = '/?v=no';
+		location.href = '/?no=noooo';
 	});
 
 	$yes.on('click',function(){
@@ -72,14 +72,21 @@ $(function(){
 	$('.label').on('click',function(){
 		var $this = $(this);
 		var $this_id = $this.data('id');
-		$('#'+$this_id).click();
+		// need to semi-show field for safari security $('#'+$this_id).addClass('semi-visible').focus().click();
+		$('#'+$this_id).focus().click();
 	});
 	$files.on('change',function(){
 		var $this = $(this);
 		if($this.val()!=''){
 			$this.next('.faux-file').find('.label').addClass('file');
 			$this.next('.faux-file').append('<span class="chosen-file">'+$this.val()+'</span>');
+			//$this.next('.faux-file').append('<span class="icon-remove rmv" id="remove"></span>');
 		}
+	});
+	$('#remove').on('click',function(){
+		//var $this = $(this);
+		$(this).parent().find('span.chosen-file').remove();
+		$(this).parent().find('.label').removeClass('file');
 	});
 
 });

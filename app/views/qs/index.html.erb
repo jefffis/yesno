@@ -1,13 +1,6 @@
-<% vote = params[:v] %>
-<% if vote == 'yes' %>
-yessss
-<% elsif vote == 'no' %>
-nooooo
-<% end %>
-<!--<h1>Listing qs</h1>-->
 <div class="center">
-  <%= link_to(new_q_path) do %>
-  <span class="btn"><span class="icon-plus"></span> Add New Q?</span>
+  <%= link_to('/qs/'+@q_next.unique_id) do %>
+  <span class="btn"><span class="icon-repeat"></span> Randomize</span>
   <% end %>
 </div>
 <ul class="listings">
@@ -15,9 +8,6 @@ nooooo
 <%
 yes_v = q.votes
 no_v = q.votes_no
-#total = yes_v + no_v
-#yes = (yes_v.to_f / total.to_f) * 100
-#no = (no_v.to_f / total.to_f) * 100
 %>
   <li
   <% if yes_v > 0 && no_v > 0 %>
@@ -34,3 +24,8 @@ no_v = q.votes_no
   </li>
 <% end %>
 </ul>
+<div class="center">
+  <%= link_to(new_q_path) do %>
+  <span class="btn"><span class="icon-plus"></span> Add New Q?</span>
+  <% end %>
+</div>
