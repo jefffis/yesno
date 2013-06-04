@@ -3,6 +3,12 @@ function SetCookie(cookieName,cookieValue) {
 	+ ";expires=Sun, 17 Jan 2038 19:14:07 GMT; path=/";
 }
 
+var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
+var is_explorer = navigator.userAgent.indexOf('MSIE') > -1;
+var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+var is_Opera = navigator.userAgent.indexOf("Presto") > -1;
+
 $(function(){
 
 	var $vote = $('#vote');
@@ -27,6 +33,8 @@ $(function(){
 	var $files = $('input[type=file]').addClass('file');
 	var $file_labels = $files.prev('label').addClass('file');
 
+	var $remove_params = $('#remove-params');
+
 	//console.log($.cookie($h1_title));
 
 	$header_link_yes.on('click',function(e){
@@ -36,6 +44,11 @@ $(function(){
 	$header_link_no.on('click',function(e){
 		e.preventDefault();
 		location.href = '/?no=noooo';
+	});
+
+	$remove_params.on('click',function(){
+		var $this = $(this);
+		location.href = $this.data('url');
 	});
 
 	$yes.on('click',function(){
@@ -72,8 +85,12 @@ $(function(){
 	$('.label').on('click',function(){
 		var $this = $(this);
 		var $this_id = $this.data('id');
-		// need to semi-show field for safari security $('#'+$this_id).addClass('semi-visible').focus().click();
-		$('#'+$this_id).focus().click();
+		if(is_safari){
+			// need to semi-show field for safari security
+			$('#'+$this_id).addClass('semi-visible').focus().click();
+		}else{
+			$('#'+$this_id).focus().click();
+		}
 	});
 	$files.on('change',function(){
 		var $this = $(this);

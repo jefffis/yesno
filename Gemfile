@@ -7,6 +7,7 @@ gem 'rails', '3.2.10'
 
 gem 'mysql2'
 gem 'paperclip'
+gem 'turbolinks'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,6 +22,13 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'therubyracer', require: "v8"
+
+group :production do
+  # gems specifically for Heroku go here
+  gem "pg"
+  gem 'aws-sdk'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

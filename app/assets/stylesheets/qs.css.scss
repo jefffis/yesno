@@ -176,6 +176,19 @@ header {
 			background: darken($main-blue, 20%);
 		}
 	}
+	&.sm {
+		margin: -1em 0 0;
+		font-size: 80%;
+		font-weight: bold;
+		opacity: .5;
+		cursor: pointer;
+		span {
+			font-size: 120%;
+		}
+		&:active {
+			opacity: .35;
+		}
+	}
 }
 
 .vote-again {
