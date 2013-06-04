@@ -1,6 +1,8 @@
 <div class="center">
+  <% if @q_next %>
   <%= link_to('/qs/'+@q_next.unique_id) do %>
   <span class="btn"><span class="icon-repeat"></span> Randomize</span>
+  <% end %>
   <% end %>
 </div>
 <ul class="listings">
