@@ -1,7 +1,11 @@
+<%
+vote_yes = params[:yes]
+vote_no = params[:no]
+%>
 <div class="center">
   <% if @q_next %>
   <%= link_to('/qs/'+@q_next.unique_id) do %>
-  <span class="btn"><span class="icon-repeat"></span> Randomize</span>
+  <span class="btn<% if vote_no %> rev<% end %>"><span class="icon-repeat"></span> Randomize</span>
   <% end %>
   <% end %>
 </div>
@@ -11,13 +15,13 @@
 yes_v = q.votes
 no_v = q.votes_no
 %>
-  <li
-  <% if yes_v > 0 && no_v > 0 %>
-  <% if yes_v > no_v %> data-vote="yes"<% elsif no_v > yes_v %> data-vote="no"<% end %>
-  <% end %>
-  >
+  <!--<li
+  <%# if !!q.image_yes.blank? %> style="background-image:url(<%#= q.image_yes.url(:large) %>); background-size: cover;" class="img-filter"<%# end %>
+  >-->
+  <li>
     <%= link_to(q) do %>
-    <h1><%= q.title %></h1>
+    <!--<h1<%# if !q.image_yes.blank? %> class="white"<%# end %><%# if !q.image_no.blank? %> class="white"<%# end %>><%= q.title %></h1>-->
+    <h1<% if vote_no || !vote_no && no_v > yes_v %> class="no"<% end %>><%= q.title %></h1>
     <!--<p><%= q.description %></p>-->
     <%#= q.votes %> 
     <%#= link_to 'Edit', edit_q_path(q) %> 
@@ -28,6 +32,6 @@ no_v = q.votes_no
 </ul>
 <div class="center">
   <%= link_to(new_q_path) do %>
-  <span class="btn"><span class="icon-plus"></span> Add New Q?</span>
+  <span class="btn<% if vote_no %> rev<% end %>"><span class="icon-plus"></span> Add New Q?</span>
   <% end %>
 </div>

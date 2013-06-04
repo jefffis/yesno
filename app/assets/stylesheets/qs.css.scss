@@ -17,13 +17,13 @@ $main-blue: #4fccfd;
 
 html {
 	font: normal 100%/1.5 'Helvetica Neue', Arial, sans-serif;
-	height: auto;
+	height: 100%;
 	min-height: 100%;
 	width: 100%;
 	background: rgba(0,0,0,0.05);
 	overflow-x: hidden;
 	color: #555;
-	border: 5px solid #555;
+	//border: 5px solid #555;
 	//border-top-color: $main-pink;
 	//border-bottom-color: $main-pink;
 	//border-right-color: $main-blue;
@@ -32,6 +32,16 @@ html {
 
 body {
 	padding: 2em 0;
+}
+.home, .wrapper {
+	display: table;
+	height: 100%;
+	width: 100%;
+}
+.wrapper {
+	padding: 0;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 h1, h2, h3 {
@@ -174,6 +184,15 @@ header {
 		&:active {
 			color: rgba(255,255,255,0.75);
 			background: darken($main-blue, 20%);
+		}
+		&.rev {
+			background: $main-pink;
+			&:hover {
+				background: darken($main-pink, 7%);
+			}
+			&:active {
+				background: darken($main-pink, 20%);
+			}
 		}
 	}
 	&.sm {
@@ -511,6 +530,9 @@ form {
 		//border-right: 0;
 		border-bottom: 0;
 		border-top: 0;
+		&.img-filter {
+			
+		}
 		h1 {
 			margin: 0;
 		}
@@ -526,7 +548,8 @@ form {
 			padding: 2em 1em;
 			color: $main-pink;
 			text-decoration: none;
-			background: rgba(0,0,0,0.075);
+			background: rgba(0,0,0,0.025);
+			box-shadow: 0 -1px 0 rgba(0,0,0,0.05) inset, 0 1px 0 rgba(0,0,0,0.05) inset;
 			/*-webkit-transition: all .2s ease-in-out;
 			-moz-transition: all .2s ease-in-out;
 			transition: all .2s ease-in-out;*/
@@ -547,9 +570,18 @@ form {
 				padding: 2.05em 1em 1.95em;
 				//box-shadow: 0 0 5px 0 rgba(0,0,0,0.5) inset;
 			}
+			.white {
+				color: white;
+			}
+			.no {
+				color: darken($main-blue, 10%);
+			}
 		}
 		&:nth-child(even) a {
 			background: white;
+		}
+		&.img-filter:nth-child(even) a {
+			background: none;
 		}
 		&:nth-child(even) a:hover {
 			background: $main-blue;
@@ -611,7 +643,7 @@ form {
 	outline: 3px solid red;
 }
 
-@media screen and (min-width:50em){
+@media screen and (min-width:45em){
 	header {
 		/*position: fixed;
 		top: 2em;

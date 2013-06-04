@@ -126,9 +126,10 @@ no = (no_v.to_f / total.to_f) * 100
 	<%= link_to '<span class="icon-share-alt"></span>'.html_safe, ('https://twitter.com/intent/tweet?text='+text+'&url='+url), :target => '_blank' %>
 	<%# end %>
 </div>
-
+<% if @q_next %>
 <div class="vote-again">
 	<%= link_to(@q_next.unique_id) do %>
 	<span class="icon-repeat"></span>
 	<% end %>
 </div>
+<% end %>
