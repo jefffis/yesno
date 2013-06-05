@@ -274,6 +274,42 @@ header {
 	}
 }
 
+.welcome {
+	height: 100%;
+	width: 100%;
+	display: table;
+	color: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 30;
+	//opacity: 0;
+	//-webkit-animation: fadeOut 1s ease-in-out 1;
+	div {
+		height: 100%;
+		width: 100%;
+		display: table-cell;
+		vertical-align: middle;
+		background: $main-pink;
+		text-shadow: 0 0 1px rgba(0,0,0,0.2), 0 0 2px rgba(0,0,0,0.1), 0 0 10px rgba(0,0,0,0.1);
+		text-align: center;
+	}
+	&.blue div {
+		background: $main-blue;
+	}
+}
+
+@-webkit-keyframes fadeOut {
+	from {
+		opacity: 1;
+		z-index: 30;
+	}
+	to {
+		opacity: 0;
+		z-index: 0;
+	}
+}
+
 .votable {
 
 	clear: both;

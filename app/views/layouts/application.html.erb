@@ -19,6 +19,15 @@ url = request.fullpath.split('?')
 		<link rel="robots" href="robots.txt" />-->
 </head>
 <body<% if url[0] == '/' %> class="home"<% else %> class="inner"<% end %>>
+	<% if !cookies[:welcome] %>
+	<% if url[0] == '/' %>
+		<div class="welcome<% if vote_no %> blue<% end %>" id="welcome">
+			<div>
+				<h1>yes <span class="icon-thumbs-up"></span> : no <span class="icon-thumbs-down"></span></h1>
+			</div>
+		</div>
+	<% end %>
+	<% end %>
 	<div class="wrapper">
 		<header>
 			<h2><%= link_to('/') do %>
@@ -37,6 +46,14 @@ url = request.fullpath.split('?')
 	<% if notice %>
 	<script>
 	SetCookie('<%= @q.title.parameterize %>-author','yes');
+	</script>
+	<% end %>
+	<% if !cookies[:welcome] %>
+	<script>
+		SetCookie('welcome',1);
+		setTimeout(function(){
+			$('#welcome').fadeOut(700);
+		}, 700);
 	</script>
 	<% end %>
 </body>
