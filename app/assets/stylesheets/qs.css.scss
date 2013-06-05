@@ -670,7 +670,7 @@ form {
 	}
 }
 
-.voted, #notice, #error_explanation {
+.voted, #notice, #error_explanation, .del {
 	background: rgba(255,255,0,0.25);
 	padding: 1em;
 	text-align: center;
@@ -688,6 +688,12 @@ form {
 			font-weight: bold;
 		}
 	}
+}
+.del {
+	display: block;
+	max-width: 35em;
+	margin: 0 auto 1em;
+	padding: .5em; 
 }
 #error_explanation {
 	display: block;

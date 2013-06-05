@@ -1,5 +1,8 @@
 <h1>Edit <span><%= @q.title %></span></h1>
 <%= render 'form' %>
+<div class="center del">
+	<%= link_to 'Delete this question?'.html_safe, @q, method: :delete, data: { confirm: 'Are you sure? All data will be gone for good.' } %>
+</div>
 <div class="center">
 	<%= link_to(@q) do %>
 	<span class="icon-arrow-left"></span>

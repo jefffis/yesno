@@ -115,15 +115,15 @@ no = (no_v.to_f / total.to_f) * 100
 	<%= link_to(@q_next.unique_id) do %>
 	<span class="btn"><span class="icon-repeat"></span> <em>mishmash</em></span>
 	<% end %>
+	<% if cookies[@q.title.parameterize+'-author'] == 'yes' %>
+	<%= link_to(edit_q_path(@q)) do %>
+	<span class="icon-pencil"></span> <em>edit</em>
+	<% end %>
+	<% end %>
 </div>
 <% end %>
 
 <div class="center">
-	<% if cookies[@q.title.parameterize+'-author'] == 'yes' %>
-	<%= link_to(edit_q_path(@q)) do %>
-	<span class="icon-pencil"></span>
-	<% end %>
-	<% end %>
 	<%= link_to(new_q_path) do %>
 	<span class="icon-plus"></span>
 	<% end %>
