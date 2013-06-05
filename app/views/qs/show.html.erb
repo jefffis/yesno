@@ -109,10 +109,12 @@ no = (no_v.to_f / total.to_f) * 100
 <% end %>
 <% end %>
 
+<div class="hide">
 <%= form_for(@q) do |q| %>
 	<%= q.hidden_field :votes %>
 	<%= q.hidden_field :votes_no %>
 <% end %>
+</div>
 
 <% if @q_next %>
 <div class="vote-again">
