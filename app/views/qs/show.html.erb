@@ -133,7 +133,14 @@ no = (no_v.to_f / total.to_f) * 100
 	<%
 	url = URI.escape(request.url)
 	text = URI.escape(@q.title)
+	if cookies[@q.title.parameterize] == 'yes'
+		answer = 'yes'
+		response = 'is+true'
+	else
+		answer = 'no'
+		response = 'is+not+true'
+	end
 	%>
-	<%= link_to '<span class="icon-share-alt"></span>'.html_safe, ('https://twitter.com/intent/tweet?text='+text+'&url='+url), :target => '_blank' %>
+	<%= link_to '<span class="icon-share-alt"></span>'.html_safe, ('https://twitter.com/intent/tweet?text=I+said+"'+text+'"+'+response+',+what+say+you?++&url='+url), :target => '_blank' %>
 	<%# end %>
 </div>
