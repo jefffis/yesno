@@ -34,5 +34,10 @@ url = request.fullpath.split('?')
 		</div>
 	<% if url[0] == '/' %></div><% end %>
 	<%= javascript_include_tag "application" %>
+	<% if notice %>
+	<script>
+	SetCookie('<%= @q.title.parameterize %>-author','yes');
+	</script>
+	<% end %>
 </body>
 </html>

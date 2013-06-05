@@ -3,8 +3,9 @@
 	<h2>You voted <span><%= cookies[@q.title.parameterize] %></span> on whether you think <span><%= @q.title %></span> is true or not; thx!</h2>
 </div>
 <% end %>
-
+<% if notice %>
 <p id="notice"><%= notice %></p>
+<% end %>
 
 <h1 data-title="<%= @q.title.parameterize %>"><%= @q.title %></h1>
 <p><%= @q.description.html_safe %></p>
@@ -118,8 +119,10 @@ no = (no_v.to_f / total.to_f) * 100
 <% end %>
 
 <div class="center">
+	<% if cookies[@q.title.parameterize+'-author'] == 'yes' %>
 	<%= link_to(edit_q_path(@q)) do %>
 	<span class="icon-pencil"></span>
+	<% end %>
 	<% end %>
 	<%= link_to(new_q_path) do %>
 	<span class="icon-plus"></span>
