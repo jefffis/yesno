@@ -50,7 +50,10 @@ body {
 	height: 100%;
 	width: 100%;
 }
-.wrapper {
+.inner .wrapper {
+	display: block;
+}
+.home .wrapper {
 	padding: 0;
 	display: table-cell;
 	vertical-align: middle;
@@ -672,6 +675,16 @@ form {
 }
 
 @media screen and (min-width:45em){
+	body {
+		display: table;
+		height: 100%;
+		width: 100%;
+	}
+	.inner .wrapper {
+		padding: 0;
+		display: table-cell;
+		vertical-align: middle;
+	}
 	header {
 		/*position: fixed;
 		top: 2em;

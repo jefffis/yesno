@@ -18,8 +18,8 @@ url = request.fullpath.split('?')
 		<meta name="robots" content="noodp,noydir" />
 		<link rel="robots" href="robots.txt" />-->
 </head>
-<body<% if url[0] == '/' %> class="home"<% end %>>
-	<% if url[0] == '/' %><div class="wrapper"><% end %>
+<body<% if url[0] == '/' %> class="home"<% else %> class="inner"<% end %>>
+	<div class="wrapper">
 		<header>
 			<h2><%= link_to('/') do %>
 				<strong data-vote="yes"<% if vote_yes %> class="active"<% end %>>yes <span class="icon-thumbs-up"></span></strong>
@@ -32,7 +32,7 @@ url = request.fullpath.split('?')
 		<div class="main" role="main">
 			<%= yield %>
 		</div>
-	<% if url[0] == '/' %></div><% end %>
+	</div>
 	<%= javascript_include_tag "application" %>
 	<% if notice %>
 	<script>
