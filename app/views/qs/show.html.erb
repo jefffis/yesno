@@ -141,6 +141,6 @@ no = (no_v.to_f / total.to_f) * 100
 		response = 'is+not+true'
 	end
 	%>
-	<%= link_to '<span class="icon-share-alt"></span>'.html_safe, ('https://twitter.com/intent/tweet?text=I+said+"'+text+'"+'+response+',+what+say+you?++&url='+url), :target => '_blank' %>
+	<%= link_to '<span class="icon-share-alt"></span>'.html_safe, ('https://twitter.com/intent/tweet?text='+answer.capitalize+'+"'+text+'"+'+response+',+what+say+you?++&url='+url), :target => '_blank' %>
 	<%# end %>
 </div>
