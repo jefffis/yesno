@@ -21,11 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :image_yes, 'Add an image for Yes?' %>
-    <%= f.file_field :image_yes %>
+    <%= f.file_field :image_yes, :accept => 'image/*' %>
   </div>
   <div class="field">
     <%= f.label :image_no, 'Add an image for No?' %>
-    <%= f.file_field :image_no %>
+    <%= f.file_field :image_no, :accept => 'image/*' %>
   </div>
   <!--<div class="field">
     <%#= f.label :votes %><br />
