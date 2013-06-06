@@ -214,6 +214,11 @@ header {
 	}
 }
 
+//browsers that don't understand css filters
+.no-filter .inactive {
+	opacity: .5;
+}
+
 .main {
 	font-size: 85%;
 	h1 {
