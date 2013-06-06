@@ -922,7 +922,9 @@ form {
 		a {
 			display: block;
 			padding: 1.5em 1em;
-			color: $main-pink;
+			//color: $main-pink;
+			color: #040407;
+			opacity: .75;
 			text-decoration: none;
 			background: rgba(0,0,0,0.025);
 			box-shadow: 0 -1px 0 rgba(0,0,0,0.05) inset, 0 1px 0 rgba(0,0,0,0.05) inset;
@@ -935,6 +937,7 @@ form {
 			&:hover {
 				background: $main-pink;
 				color: white;
+				opacity: 1;
 				//box-shadow: 0 -3px 0 rgba(0,0,0,0.1) inset;
 				//box-shadow: 0 0 5px 0 rgba(0,0,0,0.5) inset;
 				h1, p, small {
@@ -942,6 +945,7 @@ form {
 				}
 			}
 			&:active {
+				opacity: 1;
 				background: darken($main-pink, 20%);
 				padding: 1.55em 1em 1.45em;
 				//box-shadow: 0 0 5px 0 rgba(0,0,0,0.5) inset;
@@ -950,7 +954,7 @@ form {
 				color: white;
 			}
 			.no {
-				color: darken($main-blue, 10%);
+				//color: darken($main-blue, 10%);
 			}
 		}
 		&:nth-child(even) a {
@@ -996,6 +1000,7 @@ form {
 		font-weight: normal;
 		font-size: 125%;
 		//color: rgba(200,100,25,0.65);
+		opacity: .5;
 		letter-spacing: normal;
 		span {
 			font-weight: bold;
