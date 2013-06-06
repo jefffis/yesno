@@ -3,12 +3,43 @@
 	<h2>You voted <span><%= cookies[@q.unique_id] %></span> on whether you think <span><%= @q.title %></span> is true or not; thx!</h2>
 </div>
 <% end %>
+
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
 
 <h1 data-unique-id="<%= @q.unique_id %>"><%= @q.title %></h1>
 <p><%= @q.description.html_safe %></p>
+
+<%
+yes_v = @q.votes
+no_v = @q.votes_no
+if yes_v >= 0 && no_v >= 0
+total = yes_v + no_v
+yes = (yes_v.to_f / total.to_f) * 100
+no = (no_v.to_f / total.to_f) * 100
+%>
+<% if cookies[@q.unique_id] %>
+<% if yes_v == 0 && no_v == 0 %>
+<%#= yes_v %>
+<%#= no_v %>
+<div class="overall">
+	<span>We got</span> no votes <span>yet, add yours?</span>
+</div>
+<% else %>
+<div class="overall<% if yes > no %> yes<% elsif no > yes %> no<% end %> t">
+	<% if yes > no %>
+	<%= yes.to_s.split('.')[0] %>% <span>of peeps say yes.</span>
+	<% elsif no > yes %>
+	<%= no.to_s.split('.')[0] %>% <span>of peeps say no.</span>
+	<% else %>
+	<span>The ppl are</span> split 50/50.
+	<% end %>
+</div>
+<% end %>
+<% end %>
+<% end %>
+
 <hr />
 
 <% if !@q.image_yes.blank? %><%= link_to 'View Yes img <span class="icon-external-link"></span>'.html_safe, @q.image_yes.url, :target => '_blank', :class => 'linkable m' %><% end %>
@@ -82,14 +113,7 @@
 	<% if !@q.image_no.blank? %><%= link_to 'View No img <span class="icon-external-link"></span>'.html_safe, @q.image_no.url, :target => '_blank', :class => 'linkable d' %><% end %>
 </div>
 
-<%
-yes_v = @q.votes
-no_v = @q.votes_no
-if yes_v >= 0 && no_v >= 0
-total = yes_v + no_v
-yes = (yes_v.to_f / total.to_f) * 100
-no = (no_v.to_f / total.to_f) * 100
-%>
+<% if !cookies[@q.unique_id] %>
 <% if yes_v == 0 && no_v == 0 %>
 <%#= yes_v %>
 <%#= no_v %>

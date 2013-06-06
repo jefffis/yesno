@@ -32,4 +32,6 @@ class Q < ActiveRecord::Base
 
 	attr_accessible :description, :title, :votes, :image_yes, :image_no, :unique_id, :votes_no
 
+	self.per_page = 5
+
 end

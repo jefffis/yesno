@@ -5,6 +5,7 @@ class QsController < ApplicationController
   # GET /qs.json
   def index
     @qs = Q.all
+    #@qs = Q.paginate(:page => params[:page]).order('id DESC').all
 
     if params[:yes]
       @qs = Q.all( :select => "*", :conditions => ["votes > votes_no"])
