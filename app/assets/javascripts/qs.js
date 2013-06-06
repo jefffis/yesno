@@ -22,7 +22,7 @@ $(function(){
 	var $form = $('.edit_q');
 	var $form_url = $form.attr('action');
 	var $h1 = $('h1');
-	var $h1_title = $h1.data('title');
+	var $h1_title = $h1.data('unique-id');
 	var $voted = $('#voted');
 
 	var $header_link = $('header h2 a');
