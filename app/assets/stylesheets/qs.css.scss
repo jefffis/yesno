@@ -364,6 +364,56 @@ header {
 		z-index: 0;
 	}
 }
+@-moz-keyframes fadeOut {
+	from {
+		opacity: 1;
+		z-index: 30;
+	}
+	to {
+		opacity: 0;
+		z-index: 0;
+	}
+}
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+		z-index: 30;
+	}
+	to {
+		opacity: 0;
+		z-index: 0;
+	}
+}
+@-webkit-keyframes fadeTwirl {
+	from {
+		opacity: 1;
+		//-webkit-transform: rotate(0deg);
+	}
+	to {
+		opacity: 0;
+		-webkit-transform: scale(1.5); //rotate(360deg);
+	}
+}
+@-moz-keyframes fadeTwirl {
+	from {
+		opacity: 1;
+		//-webkit-transform: rotate(0deg);
+	}
+	to {
+		opacity: 0;
+		-moz-transform: scale(1.5); //rotate(360deg);
+	}
+}
+@keyframes fadeTwirl {
+	from {
+		opacity: 1;
+		//-webkit-transform: rotate(0deg);
+	}
+	to {
+		opacity: 0;
+		transform: scale(1.5); //rotate(360deg);
+	}
+}
 
 .votable {
 
@@ -383,6 +433,21 @@ header {
 	margin: 0 auto;
 	//-webkit-transition: all .2s ease-in-out;
 	cursor: pointer;
+
+	&.votering {
+		.h-wrap {
+			opacity: 0;
+			-webkit-animation: fadeOut .2s ease-in-out 1;
+			-moz-animation: fadeOut .2s ease-in-out 1;
+			animation: fadeOut .2s ease-in-out 1;
+		}
+		.notyet {
+			opacity: 0;
+			-webkit-animation: fadeTwirl .2s ease-in-out 1;
+			-moz-animation: fadeTwirl .2s ease-in-out 1;
+			animation: fadeTwirl .2s ease-in-out 1;
+		}	
+	}
 
 	& + .votable {
 		clear: none;

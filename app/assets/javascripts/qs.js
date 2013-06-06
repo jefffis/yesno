@@ -71,8 +71,11 @@ $(function(){
 		$vote_yes_total = $vote_yes_total + 1;
 		$vote_yes.val($vote_yes_total);
 		$.post($form_url, $form.serialize());
+		$this.addClass('votering');
 		SetCookie($h1_title,'yes');
-		location.reload();
+		setTimeout(function(){
+			location.reload();
+		},250);
 	});
 
 	$no.on('click',function(){
@@ -83,8 +86,11 @@ $(function(){
 		$vote_no_total = $vote_no_total + 1;
 		$vote_no.val($vote_no_total);
 		$.post($form_url, $form.serialize());
+		$this.addClass('votering');
 		SetCookie($h1_title,'no');
-		location.reload();
+		setTimeout(function(){
+			location.reload();
+		},250);
 	});
 
 	// wrap file inputs in clickable div with label text
