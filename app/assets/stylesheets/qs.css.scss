@@ -55,6 +55,7 @@ html {
 }
 
 body {
+	box-shadow: 0 1px 0 rgba(255,255,255,0.35) inset, 0 -1px 0 rgba(255,255,255,0.35) inset;
 	padding: 2em 0;
 	background: #f3f3f3;
 	background: -moz-linear-gradient(top, #dfdfdf 0%, #f3f3f3 10%, #f3f3f3 90%, #f3f3f3 100%, #dfdfdf 100%); /* FF3.6+ */
