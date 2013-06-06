@@ -36,8 +36,8 @@ no = (no_v.to_f / total.to_f) * 100
 
 <hr />
 
-<% if !@q.image_yes.blank? %><%= link_to 'View Yes img <span class="icon-external-link"></span>'.html_safe, @q.image_yes.url, :target => '_blank', :class => 'linkable m' %><% end %>
-	<% if !@q.image_no.blank? %><%= link_to 'View No img <span class="icon-external-link"></span>'.html_safe, @q.image_no.url, :target => '_blank', :class => 'linkable m' %><% end %>
+<% if !@q.image_yes.blank? %><%= link_to 'View yes image <span class="icon-external-link"></span>'.html_safe, @q.image_yes.url, :target => '_blank', :class => 'linkable m' %><% end %>
+	<% if !@q.image_no.blank? %><%= link_to 'View no image <span class="icon-external-link"></span>'.html_safe, @q.image_no.url, :target => '_blank', :class => 'linkable m' %><% end %>
 <div class="wrap cf">
 	<div class="votable yes<% if cookies[@q.unique_id] %> ivoted<% end %><% if @q.image_yes.blank? %> no-img-yes<% end %>" id="yes"<% if !@q.image_yes.blank? %> style="background-image:url(<%= @q.image_yes.url(:large) %>); background-size: cover;"<% end %>>
 		<% if cookies[@q.unique_id] %>
@@ -103,8 +103,8 @@ no = (no_v.to_f / total.to_f) * 100
 			</div>
 		<% end %>
 	</div>
-	<% if !@q.image_yes.blank? %><%= link_to 'View Yes img <span class="icon-external-link"></span>'.html_safe, @q.image_yes.url, :target => '_blank', :class => 'linkable d' %><% end %>
-	<% if !@q.image_no.blank? %><%= link_to 'View No img <span class="icon-external-link"></span>'.html_safe, @q.image_no.url, :target => '_blank', :class => 'linkable d' %><% end %>
+	<% if !@q.image_yes.blank? %><%= link_to 'View image <span class="icon-external-link"></span>'.html_safe, @q.image_yes.url, :target => '_blank', :class => 'linkable d' %><% end %>
+	<% if !@q.image_no.blank? %><%= link_to 'View image <span class="icon-external-link"></span>'.html_safe, @q.image_no.url, :target => '_blank', :class => 'linkable d' %><% end %>
 </div>
 
 <% if !cookies[@q.unique_id] %>

@@ -57,13 +57,13 @@ html {
 body {
 	box-shadow: 0 1px 0 rgba(255,255,255,0.35) inset, 0 -1px 0 rgba(255,255,255,0.35) inset;
 	padding: 2em 0;
-	background: #f3f3f3;
-	background: -moz-linear-gradient(top, #dfdfdf 0%, #f3f3f3 10%, #f3f3f3 90%, #f3f3f3 100%, #dfdfdf 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dfdfdf), color-stop(10%,#f3f3f3), color-stop(90%,#f3f3f3), color-stop(100%,#f3f3f3), color-stop(100%,#dfdfdf)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #dfdfdf 0%,#f3f3f3 10%,#f3f3f3 90%,#f3f3f3 100%,#dfdfdf 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #dfdfdf 0%,#f3f3f3 10%,#f3f3f3 90%,#f3f3f3 100%,#dfdfdf 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #dfdfdf 0%,#f3f3f3 10%,#f3f3f3 90%,#f3f3f3 100%,#dfdfdf 100%); /* IE10+ */
-	background: linear-gradient(to bottom, #dfdfdf 0%,#f3f3f3 10%,#f3f3f3 90%,#f3f3f3 100%,#dfdfdf 100%); /* W3C */
+	//background: #f3f3f3;
+	//background: -moz-linear-gradient(top, #dfdfdf 0%, #f3f3f3 10%, #f3f3f3 90%, #f3f3f3 100%, #dfdfdf 100%); /* FF3.6+ */
+	//background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dfdfdf), color-stop(10%,#f3f3f3), color-stop(90%,#f3f3f3), color-stop(100%,#f3f3f3), color-stop(100%,#dfdfdf)); /* Chrome,Safari4+ */
+	//background: -webkit-linear-gradient(top, #dfdfdf 0%,#f3f3f3 10%,#f3f3f3 90%,#f3f3f3 100%,#dfdfdf 100%); /* Chrome10+,Safari5.1+ */
+	//background: -o-linear-gradient(top, #dfdfdf 0%,#f3f3f3 10%,#f3f3f3 90%,#f3f3f3 100%,#dfdfdf 100%); /* Opera 11.10+ */
+	//background: -ms-linear-gradient(top, #dfdfdf 0%,#f3f3f3 10%,#f3f3f3 90%,#f3f3f3 100%,#dfdfdf 100%); /* IE10+ */
+	//background: linear-gradient(to bottom, #dfdfdf 0%,#f3f3f3 10%,#f3f3f3 90%,#f3f3f3 100%,#dfdfdf 100%); /* W3C */
 	border-bottom: 5px solid #555;
 }
 .home, .wrapper {
@@ -686,22 +686,26 @@ header {
 	text-decoration: none;
 	width: 50%;
 	float: left;
-	font-family: $sans2;
+	font-family: $sans;
 	background: rgba(0,0,0,0.05);
 	border: 1px solid #ccc;
 	border-bottom: 0;
-	letter-spacing: -1px;
+	//letter-spacing: -1px;
 	& + .linkable {
 		clear: none;
 		border-left: 0;
+		&:active {
+			box-shadow: 1px 0 0 #999 inset;
+		}
 	}
 	&:hover {
 		background: rgba(0,0,0,0.1);
 	}
 	&:active {
-		color: white;
+		//color: white;
+		border-color: #999;
 		background: rgba(0,0,0,0.25);
-		box-shadow: 0 0 3px rgba(0,0,0,0.35) inset, 0 1px 8px rgba(0,0,0,0.3) inset;
+		//box-shadow: 0 0 3px rgba(0,0,0,0.15) inset, 0 0 8px rgba(0,0,0,0.1) inset;
 		text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
 	}
 	span {
@@ -957,7 +961,7 @@ form {
 			}
 		}
 		&:nth-child(even) a {
-			background: white;
+			background: rgba(0,0,0,0.1);
 		}
 		&.img-filter:nth-child(even) a {
 			background: none;
