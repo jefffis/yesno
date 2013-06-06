@@ -62,7 +62,7 @@ url = request.fullpath.split('?')
 	<%= javascript_include_tag "application" %>
 	<% if notice %>
 	<script>
-	SetCookie('<%= @q.title.parameterize %>-author','yes');
+	SetCookie('<%= @q.unique_id %>-author','yes');
 	</script>
 	<% end %>
 	<% if !cookies[:welcome] %>
