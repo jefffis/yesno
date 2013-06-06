@@ -106,9 +106,9 @@ header {
 		top: 2em;
 		left: 2em;
 		cursor: pointer;
-		opacity: .75;
+		opacity: .5;
 		&:active {
-			opacity: .5;
+			opacity: .35;
 		}
 	}
 	img {
@@ -167,9 +167,6 @@ header {
 			right: 0;
 			top: 0;
 			max-width: 41%;
-			&.inactive {
-				right: -.075em;
-			}
 		}
 
 		a {
@@ -298,7 +295,7 @@ header {
 		}
 	}
 	&.sm {
-		margin: 1em 0 0;
+		margin: 3em 0 1em;
 		font-size: 80%;
 		font-weight: bold;
 		opacity: .5;
@@ -961,7 +958,7 @@ form {
 	z-index: 100;
 	display: none;
 	width: 100%;
-	padding: 4em;
+	padding: 1.5em;
 	background: #040407;
 	color: white;
 	text-align: left;
@@ -1044,8 +1041,11 @@ form {
 			}
 		}
 	}
+	.info {
+		padding: 4em;
+	}
 	.center.sm {
-		margin: 0;
+		margin: 1em 0;
 	}
 	.main {
 		font-size: 100%;
