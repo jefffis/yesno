@@ -39,6 +39,12 @@ url = request.fullpath.split('?')
 				<em>:</em>
 				<strong data-vote="no"<% if vote_no %> class="active"<% end %>>no <span class="icon-thumbs-down"></span></strong>
 			<% end %></h2>-->
+			<span class="icon-bolt" id="info-show"></span>
+			<div class="info" id="info">
+				<div>
+					<strong>yesno</strong> is a simple Ruby on Rails app that allows users (without logging in) to vote on yes or no questions. They can also create their own and share them socailly or with friends. Enjoy, <span class="icon-heart"></span>
+				</div>
+			</div>
 			<h2>
 				<img src="/assets/yes.svg" class="yes<% if vote_no %> inactive<% end %>" id="yes-img" />
 				<img src="/assets/no.svg" class="no<% if vote_yes %> inactive<% end %>" id="no-img" />
@@ -50,12 +56,6 @@ url = request.fullpath.split('?')
 			<%= yield %>
 		</div>
 		<footer>
-			<span class="icon-bolt" id="info-show"></span>
-			<div class="info" id="info">
-				<div>
-					<strong>yesno</strong> is a simple Ruby on Rails app that allows users (without logging in) to vote on yes or no questions. They can also create their own and share them socailly or with friends. Enjoy, <span class="icon-heart"></span>
-				</div>
-			</div>
 			<a href="http://jefff.co" target="_blank">made with love by jefff</a>
 		</footer>
 	</div>

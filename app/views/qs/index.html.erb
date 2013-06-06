@@ -22,6 +22,10 @@ no_v = q.votes_no
     <%= link_to(q) do %>
     <!--<h1<%# if !q.image_yes.blank? %> class="white"<%# end %><%# if !q.image_no.blank? %> class="white"<%# end %>><%= q.title %></h1>-->
     <h1<% if vote_no || !vote_no && no_v > yes_v %> class="no"<% end %>><%= q.title %></h1>
+    <% if q.votes > 0 || q.votes_no > 0 %><small>
+      <% if q.votes > 0 %><em><span class="icon-thumbs-up"></span> <%= q.votes %> votes</em><% end %>
+      <% if q.votes_no > 0 %><em><span class="icon-thumbs-down"></span> <%= q.votes_no %> votes</em><% end %>
+    </small><% end %>
     <!--<p><%= q.description %></p>-->
     <%#= q.votes %> 
     <%#= link_to 'Edit', edit_q_path(q) %> 
