@@ -7,9 +7,6 @@ vote_no = params[:no]
   <%= link_to('/qs/'+@q_next.unique_id) do %>
   <span class="btn<% if vote_no %> rev<% end %>"><span class="icon-repeat"></span> Randomize</span>
   <% end %>
-  <%= link_to(new_q_path) do %>
-  <span class="btn<% if vote_no %> rev<% end %>"><span class="icon-plus"></span> Add New Q?</span>
-  <% end %>
   <% end %>
 </div>
 <ul class="listings">
@@ -38,3 +35,8 @@ no_v = q.votes_no
 <% end %>
 </ul>
 <%#= will_paginate @qs %>
+<div class="center">
+  <%= link_to(new_q_path) do %>
+  <span class="btn<% if vote_no %> rev<% end %>"><span class="icon-plus"></span> Add New Q?</span>
+  <% end %>
+</div>
