@@ -1015,7 +1015,7 @@ form {
 	z-index: 100;
 	display: none;
 	width: 100%;
-	padding: 1.5em;
+	padding: 1em;
 	background: #040407;
 	color: white;
 	text-align: left;
@@ -1023,14 +1023,24 @@ form {
 		display: block;
 	}
 	div {
-		max-width: 20em;
+		max-width: 30em;
 		margin: 0 auto;
-		span {
+		font-size: 90%;
+		span, a {
 			color: $main-pink;
 		}
 		strong {
 			font-weight: normal;
 			color: $main-blue;
+		}
+		a {
+			display: block;
+			//text-align: center;
+			padding: 1em 0 0;
+			text-decoration: none;
+			span {
+				color: white;
+			}
 		}
 	}
 }
@@ -1084,7 +1094,7 @@ form {
 		h2 {
 			width: 7em;
 			height: 3em;
-			margin: 0 auto;
+			margin: .25em auto 0;
 			//padding-bottom: 4em;
 			&:before {
 				top: 1.75em;
@@ -1147,20 +1157,6 @@ form {
 		margin: 2em auto 2em;
 	}
 
-	.vote-again {
-		position: fixed;
-		top: 1em;
-		right: 1em;
-		em {
-			//display: none;
-		}
-		a {
-			//font-size: 100%;
-			padding: 6px 8px 7px;
-			line-height: 1;
-		}
-	}
-
 	.votes {
 		/*width: 45%;
 		margin: 0 2em;
@@ -1186,5 +1182,18 @@ form {
 	.main {
 		width: 65em;
 		margin: 0 auto;
+	}
+	.vote-again {
+		position: fixed;
+		top: 1.25em;
+		right: 1em;
+		em {
+			//display: none;
+		}
+		a {
+			//font-size: 100%;
+			padding: 6px 8px 7px;
+			line-height: 1;
+		}
 	}
 }

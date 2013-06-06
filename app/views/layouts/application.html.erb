@@ -10,7 +10,7 @@ url = request.fullpath.split('?')
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title><% if @q && url[0].split('/')[2] != 'new' %><%= @q.title %> | <% end %><% if url[0].split('/')[2] == 'new' %>Add a new question | <% end %>Yesno<% if url[0] == '/' %> | Simple yes/no questions for settling big debates.<% end %></title>
+		<title><% if @q && url[0].split('/')[2] != 'new' %><%= @q.title %> | <% end %><% if url[0].split('/')[2] == 'new' %>Add a new question | <% end %>yesno<% if url[0] == '/' %> | Simple yes/no questions for settling big debates.<% end %></title>
 		<!--<link href='http://fonts.googleapis.com/css?family=Carrois+Gothic|Varela+Round' rel='stylesheet' type='text/css' />-->
 		<%= stylesheet_link_tag "application", :media => "all" %>
 		<%= csrf_meta_tags %>
@@ -42,7 +42,8 @@ url = request.fullpath.split('?')
 			<span class="icon-bolt" id="info-show"></span>
 			<div class="info" id="info">
 				<div>
-					<strong>yesno</strong> is a simple Ruby on Rails app that allows users (without logging in) to vote on yes or no questions. They can also create their own and share them socailly or with friends. Enjoy, <span class="icon-heart"></span>
+					<strong>yesno</strong> is a simple Ruby on Rails app that allows users (without logging in) to vote on yes or no questions. They can also create their own and share them socailly or with friends. Enjoy y&rsquo;all.
+					<a href="http://jefff.co" target="_blank"><span>made with love by</span> jefff</a>
 				</div>
 			</div>
 			<h2><%
@@ -68,9 +69,6 @@ url = request.fullpath.split('?')
 		<div class="main" role="main">
 			<%= yield %>
 		</div>
-		<footer>
-			<a href="http://jefff.co" target="_blank">made with love by jefff</a>
-		</footer>
 	</div>
 	<%= javascript_include_tag "application" %>
 	<% if notice %>

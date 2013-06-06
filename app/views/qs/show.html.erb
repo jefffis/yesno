@@ -142,23 +142,8 @@ no = (no_v.to_f / total.to_f) * 100
 <% if @q_next %>
 <div class="vote-again">
 	<%= link_to(@q_next.unique_id) do %>
-	<span class="btn"><span class="icon-repeat"></span> <em>mishmash</em></span>
+	<span class="btn"><span class="icon-repeat"></span> <em>&rsquo;nother</em></span>
 	<% end %>
-	<% if cookies[@q.unique_id+'-author'] == 'yes' %>
-	<%= link_to(edit_q_path(@q)) do %>
-	<span class="icon-pencil"></span> <em>edit</em>
-	<% end %>
-	<% end %>
-</div>
-<% end %>
-
-<div class="center">
-	<%= link_to(new_q_path) do %>
-	<span class="icon-plus"></span>
-	<% end %>
-	<!--<%= link_to(qs_path) do %>
-	<span class="icon-home"></span>
-	<% end %>-->
 	<%
 	url = URI.escape(request.url)
 	text = URI.escape(@q.title)
@@ -171,5 +156,26 @@ no = (no_v.to_f / total.to_f) * 100
 	end
 	%>
 	<%= link_to '<span class="icon-share-alt"></span>'.html_safe, ('https://twitter.com/intent/tweet?text='+answer.capitalize+'+"'+text+'"+'+response+',+what+say+you?++&url='+url), :target => '_blank' %>
+	<!--<%= link_to('/') do %>
+	<span class="btn"><span class="icon-home"></span></span>
+	<% end %>-->
+	<% if cookies[@q.unique_id+'-author'] == 'yes' %>
+	<%= link_to(edit_q_path(@q)) do %>
+	<span class="icon-pencil"></span> <em>edit</em>
+	<% end %>
+	<% end %>
+	<%= link_to(new_q_path) do %>
+	<span class="icon-plus"></span>
+	<% end %>
+</div>
+<% end %>
+
+<div class="center">
+	<!--<%= link_to(new_q_path) do %>
+	<span class="icon-plus"></span>
+	<% end %>
+	<%= link_to(qs_path) do %>
+	<span class="icon-home"></span>
+	<% end %>-->
 	<%# end %>
 </div>
