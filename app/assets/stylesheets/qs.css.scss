@@ -40,7 +40,7 @@ html {
 	width: 100%;
 	background: rgba(0,0,0,0.05);
 	overflow-x: hidden;
-	color: #555;
+	color: #040407;
 	//border: 5px solid #555;
 	//border-top-color: $main-pink;
 	//border-bottom-color: $main-pink;
@@ -77,21 +77,53 @@ p, li {
 
 header {
 	width: 100%;
+	//position: relative;
 	//display: none;
-	img {
+	/*img {
 		display: block;
 		margin: 0 auto;
 		opacity: .5;
 		max-width: 60px;
 		display: none;
+	}*/
+	img {
+		display: block;
 	}
 	h2 {
-		margin: 0 0 1em;
+		margin: 0 auto .5em;
 		line-height: 1;
 		//opacity: .5;
 		letter-spacing: -2px;
 		font-weight: normal;
 		text-align: center;
+		position: relative;
+		width: 5em;
+		height: 1.2em;
+		padding-bottom: 2em;
+		border-bottom: 3px solid #ccc;
+
+		img {
+			position: absolute;
+			cursor: pointer;
+			&:active {
+				opacity: .75;
+			}
+			&.active {
+				opacity: .5;
+			}
+		}
+		.yes {
+			z-index: 3;
+			left: .9em;
+			top: 0;
+			max-width: 40%;
+		}
+		.no {
+			z-index: 4;
+			right: .9em;
+			top: 0;
+			max-width: 27%;
+		}
 
 		a {
 			text-decoration: none;
@@ -144,7 +176,7 @@ header {
 		padding: 0 .5em;
 		line-height: 1;
 		//margin-top: 0;
-		color: $main-pink;
+		//color: $main-pink;
 		//color: darken($main-pink, 20%);
 	}
 	p {
@@ -217,7 +249,7 @@ header {
 		}
 	}
 	&.sm {
-		margin: -1em 0 0;
+		margin: 1em 0 0;
 		font-size: 80%;
 		font-weight: bold;
 		opacity: .5;
@@ -296,9 +328,26 @@ header {
 		width: 100%;
 		display: table-cell;
 		vertical-align: middle;
-		background: $main-pink;
+		//background: $main-pink;
+		background: #040407;
 		text-shadow: 0 0 1px rgba(0,0,0,0.2), 0 0 2px rgba(0,0,0,0.1), 0 0 10px rgba(0,0,0,0.1);
 		text-align: center;
+		h2 {
+			width: 100%;
+			margin: 0 auto;
+		}
+		img {
+			display: inline;
+			position: relative;
+			&.yes {
+				top: 2em;
+				left: .3em;
+				z-index: 50;
+			}
+			&.no {
+				z-index: 51;
+			}
+		}
 	}
 	&.blue div {
 		background: $main-blue;
@@ -742,6 +791,7 @@ form {
 	padding: 1em;
 	text-align: center;
 	display: none;
+	margin-top: 2em;
 	&.show {
 		display: block;
 	}
@@ -802,10 +852,21 @@ form {
 		vertical-align: middle;
 	}
 	header {
-		/*position: fixed;
-		top: 2em;
-		left: 2em;
-		width: auto;*/
+		h2 {
+			width: 5em;
+			height: 3.5em;
+			.yes {
+				left: -.81em;
+				max-width: 80%;
+			}
+			.no {
+				right: -.81em;
+				max-width: 53%;
+			}
+		}
+	}
+	.center.sm {
+		margin: 0;
 	}
 	.main {
 		font-size: 100%;

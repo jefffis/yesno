@@ -26,8 +26,10 @@ $(function(){
 	var $voted = $('#voted');
 
 	var $header_link = $('header h2 a');
-	var $header_link_yes = $header_link.find('[data-vote=yes]');
-	var $header_link_no = $header_link.find('[data-vote=no]');
+	//var $header_link_yes = $header_link.find('[data-vote=yes]');
+	var $header_link_yes = $('#yes-img');
+	//var $header_link_no = $header_link.find('[data-vote=no]');
+	var $header_link_no = $('#no-img');
 
 	// find file inputs
 	var $files = $('input[type=file]').addClass('file');
