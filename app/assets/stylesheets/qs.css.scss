@@ -115,7 +115,7 @@ header {
 		display: block;
 	}
 	h2 {
-		margin: 0 auto .5em;
+		margin: 0 auto 1.5em;
 		line-height: 1;
 		//opacity: .5;
 		letter-spacing: -2px;
@@ -126,7 +126,6 @@ header {
 		height: 1.2em;
 		//padding-bottom: 2.3em;
 		//border-bottom: 3px solid #ccc;
-		margin-bottom: 1em;
 		&:before {
 			content: "";
 			display: block;
@@ -306,7 +305,7 @@ header {
 		}
 	}
 	&.sm {
-		margin: 3em 0 1em;
+		margin: -.5em 0 1em;
 		font-size: 80%;
 		font-weight: bold;
 		opacity: .5;
@@ -992,6 +991,7 @@ form {
 	text-align: center;
 	display: none;
 	margin-top: 3em;
+	margin-bottom: 2em;
 	&.show {
 		display: block;
 	}

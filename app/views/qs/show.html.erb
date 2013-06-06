@@ -1,9 +1,3 @@
-<% if cookies[@q.unique_id] %>
-<div class="voted show" id="voted">
-	<h2>You voted <span><%= cookies[@q.unique_id] %></span> on whether you think <span><%= @q.title %></span> is true or not; thx!</h2>
-</div>
-<% end %>
-
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
@@ -131,6 +125,11 @@ no = (no_v.to_f / total.to_f) * 100
 	<% end %>
 </div>
 <% end %>
+<% end %>
+<% if cookies[@q.unique_id] %>
+<div class="voted show" id="voted">
+	<h2>You voted <span><%= cookies[@q.unique_id] %></span> on whether you think <span><%= @q.title %></span> is true or not; thx!</h2>
+</div>
 <% end %>
 
 <div class="hide">

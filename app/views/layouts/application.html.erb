@@ -86,5 +86,12 @@ url = request.fullpath.split('?')
 		}, 700);
 	</script>
 	<% end %>
+	<% if !url[0] == '/' && cookies[@q.unique_id] %>
+	<script>
+		//setTimeout(function(){
+			//$('#voted').fadeOut(700);
+		//}, 100);
+	</script>
+	<% end %>
 </body>
 </html>
