@@ -37,6 +37,9 @@ $(function(){
 
 	var $remove_params = $('#remove-params');
 
+	var $info_show = $('#info-show');
+	var $info = $('#info');
+
 	//console.log($.cookie($h1_title));
 
 	$header_link_yes.on('click',function(e){
@@ -51,6 +54,13 @@ $(function(){
 	$remove_params.on('click',function(){
 		var $this = $(this);
 		location.href = $this.data('url');
+	});
+
+	$info_show.on('click',function(){
+		$info.toggleClass('show');
+	});
+	$info.on('click',function(){
+		$info.removeClass('show');
 	});
 
 	$yes.on('click',function(){

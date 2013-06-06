@@ -573,9 +573,10 @@ footer {
 		display: inline-block;
 		//background: lighten(#555, 25%);
 		//padding: .1em .3em;
-		opacity: .65;
-		&:hover {
-			opacity: 1;
+		//opacity: .65;
+		&:active {
+			//opacity: 1;
+			color: #040407;
 		}
 		&:before {
 			content: "";
@@ -584,7 +585,16 @@ footer {
 			padding-top: 1.5em;
 		}
 		&:hover:before {
-			opacity: .5;
+			//opacity: .5;
+		}
+	}
+	span.icon-bolt {
+		display: block;
+		cursor: pointer;
+		padding: 1em 0 0;
+		color: #555;
+		&:active {
+			color: #040407;
 		}
 	}
 }
@@ -806,6 +816,34 @@ form {
 		}
 	}
 }
+
+.info {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+	display: none;
+	width: 100%;
+	padding: 4em;
+	background: #040407;
+	color: white;
+	text-align: left;
+	&.show {
+		display: block;
+	}
+	div {
+		max-width: 20em;
+		margin: 0 auto;
+		span {
+			color: $main-pink;
+		}
+		strong {
+			font-weight: normal;
+			color: $main-blue;
+		}
+	}
+}
+
 .del {
 	display: block;
 	max-width: 35em;
