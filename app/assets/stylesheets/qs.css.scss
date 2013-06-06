@@ -114,31 +114,37 @@ header {
 		position: relative;
 		width: 5em;
 		height: 1.2em;
-		padding-bottom: 2em;
+		padding-bottom: 2.3em;
 		border-bottom: 3px solid #ccc;
 
 		img {
 			position: absolute;
 			cursor: pointer;
+			-webkit-transform: translateZ(0);
 			-webkit-filter: drop-shadow(0 1px 0 rgba(255,255,255,0.35));
+			-moz-filter: drop-shadow(0 1px 0 rgba(255,255,255,0.35));
+			filter: drop-shadow(0 1px 0 rgba(255,255,255,0.35));
 			&:active {
 				opacity: .75;
 			}
-			&.active {
+			&.inactive {
 				opacity: .5;
 			}
 		}
 		.yes {
 			z-index: 3;
-			left: .9em;
+			left: 0;
 			top: 0;
-			max-width: 40%;
+			max-width: 61%;
 		}
 		.no {
 			z-index: 4;
-			right: .9em;
+			right: 0;
 			top: 0;
-			max-width: 27%;
+			max-width: 41%;
+			&.inactive {
+				right: -.075em;
+			}
 		}
 
 		a {
@@ -981,15 +987,19 @@ form {
 	}
 	header {
 		h2 {
-			width: 5em;
+			width: 7em;
 			height: 3.5em;
+			padding-bottom: 4em;
 			.yes {
-				left: -.81em;
-				max-width: 80%;
+				left: 0;
+				//max-width: 80%;
 			}
 			.no {
-				right: -.81em;
-				max-width: 53%;
+				right: 0;
+				//max-width: 53%;
+				&.inactive {
+					right: -.15em;
+				}
 			}
 		}
 	}

@@ -40,8 +40,8 @@ url = request.fullpath.split('?')
 				<strong data-vote="no"<% if vote_no %> class="active"<% end %>>no <span class="icon-thumbs-down"></span></strong>
 			<% end %></h2>-->
 			<h2>
-				<img src="/assets/yes.svg" class="yes<% if vote_yes %> active<% end %>" id="yes-img" />
-				<img src="/assets/no.svg" class="no<% if vote_no %> active<% end %>" id="no-img" />
+				<img src="/assets/yes.svg" class="yes<% if vote_no %> inactive<% end %>" id="yes-img" />
+				<img src="/assets/no.svg" class="no<% if vote_yes %> inactive<% end %>" id="no-img" />
 			</h2>
 			<% if vote_yes || vote_no %>
 				<div class="center sm" id="remove-params" data-url="<%= request.fullpath.split('?')[0] %>"><span class="icon-remove"></span> Remove Filter?</div><% end %>
