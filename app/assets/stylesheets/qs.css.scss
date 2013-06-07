@@ -147,7 +147,20 @@ header {
 			//left: -8%;
 			top: 1.45em;
 		}
-
+		&:after {
+			content: "\f015";
+			position: absolute;
+			top: 14%;
+			right: -1.5em;
+			font: normal 100%/1 'FontAwesome';
+			letter-spacing: normal;
+			opacity: 0;
+			-webkit-transition: opacity .2s ease-in-out;
+			color: rgba(0,0,0,0.15);
+		}
+		&:hover:after {
+			opacity: 1;
+		}
 		img {
 			position: absolute;
 			cursor: pointer;
@@ -220,6 +233,9 @@ header {
 			font-style: normal;
 		}
 	}
+}
+.home header h2:after {
+	content: "";
 }
 
 //browsers that don't understand css filters
@@ -320,6 +336,11 @@ header {
 		}
 		&:active {
 			opacity: .35;
+		}
+	}
+	&.btm {
+		a {
+			margin-bottom: 1em;
 		}
 	}
 }
@@ -516,7 +537,7 @@ header {
 	//background: white;
 
 	z-index: 1;
-	max-width: 600px;
+	//max-width: 600px;
 	max-height: 300px;
 	height: 300px;
 
