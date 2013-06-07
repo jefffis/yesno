@@ -79,6 +79,10 @@ body {
 	display: table-cell;
 	vertical-align: middle;
 }
+.short {
+	padding-bottom: 0;
+	min-height: 100%;
+}
 
 h1, h2, h3 {
 	font-family: $sans;
@@ -103,10 +107,11 @@ header {
 	}*/
 	.icon-bolt {
 		position: absolute;
-		top: 2em;
-		left: 2em;
+		top: 1em;
+		left: 1em;
 		cursor: pointer;
 		opacity: .5;
+		font-size: 1.5em;
 		&:active {
 			opacity: .35;
 		}
@@ -328,7 +333,8 @@ header {
 		display: inline-block;
 		line-height: 1.2;
 		padding: .25em .5em;
-		background: rgba(0,0,0,0.1);
+		//background: rgba(0,0,0,0.1);
+		opacity: .65;
 		&:hover {
 			background: rgba(0,0,0,0.2);
 			color: #040407;
@@ -358,7 +364,7 @@ header {
 		color: #555;
 		text-decoration: none;
 		background: none;
-		margin: 0 0 1em;
+		//margin: 0 0 1em;
 		padding: .25em .75em;
 		display: inline-block;
 		width: auto;
@@ -898,6 +904,7 @@ form {
 		}
 		h1 {
 			margin: 0;
+			font-size: 175%;
 		}
 		small {
 			display: none;
@@ -1000,6 +1007,7 @@ form {
 		display: block;
 	}
 	h2 {
+		cursor: pointer;
 		margin: 0;
 		font-weight: normal;
 		font-size: 125%;
@@ -1009,6 +1017,9 @@ form {
 		span {
 			font-weight: bold;
 		}
+	}
+	&.hide {
+		display: none;
 	}
 }
 
@@ -1111,6 +1122,11 @@ form {
 				//right: -.1em;
 			}
 		}
+		span.icon-bolt {
+			font-size: 100%;
+			top: 2em;
+			left: 2em;
+		}
 	}
 	.info {
 		padding: 4em;
@@ -1178,6 +1194,9 @@ form {
 			border: 3px solid #ccc;
 			border-top: 0;
 			border-bottom: 0;
+			h1 {
+				font-size: 2.5em;
+			}
 		}
 	}
 }
@@ -1199,5 +1218,8 @@ form {
 			padding: 6px 8px 7px;
 			line-height: 1;
 		}
+	}
+	.wrap {
+		margin: 0;
 	}
 }

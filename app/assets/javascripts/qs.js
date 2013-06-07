@@ -67,6 +67,32 @@ $(function(){
 	var $info_show = $('#info-show');
 	var $info = $('#info');
 
+	var $rmv_vote_thx = $voted.find('h2');
+
+	/*var $next_page = $('.next_page');
+	var $previous_page = $('.previous_page');
+	//var $listings = $('#listings');
+	var $load = $('#load');*/
+
+	/*$next_page.on('click',function(e){
+		e.preventDefault();
+		var $this = $(this);
+		var $this_url = $this.attr('href');
+		//$.getScript('/assets/application.js');
+		$load.load($this_url+' #load');
+		//document.location.replace($this_url);
+		//history.pushState('', '', $this_url);
+		//return false;
+	});
+	$previous_page.on('click',function(e){
+		e.preventDefault();
+		var $this = $(this);
+		var $this_url = $this.attr('href');
+		//$.getScript('/assets/qs.js');
+		$load.load($this_url+' #load');
+		//return false;
+	});*/
+
 	//console.log($.cookie($h1_title));
 
 	$header_link_yes.on('click',function(e){
@@ -101,7 +127,7 @@ $(function(){
 		$this.addClass('votering');
 		SetCookie($h1_title,'yes');
 		setTimeout(function(){
-			location.reload();
+			window.location.href = window.location;
 		},250);
 	});
 
@@ -116,8 +142,14 @@ $(function(){
 		$this.addClass('votering');
 		SetCookie($h1_title,'no');
 		setTimeout(function(){
-			location.reload();
+			window.location.href = window.location;
 		},250);
+	});
+
+	$rmv_vote_thx.on('click',function(){
+		var $this = $(this);
+		$voted.fadeOut(500);
+		SetCookie($h1_title+'-rmv-vote',1);
 	});
 
 	// wrap file inputs in clickable div with label text

@@ -9,6 +9,7 @@ vote_no = params[:no]
   <% end %>
   <% end %>
 </div>
+<div id="load">
 <ul class="listings">
 <% @qs.each do |q| %>
 <%
@@ -34,7 +35,8 @@ no_v = q.votes_no
   </li>
 <% end %>
 </ul>
-<%#= will_paginate @qs %>
+<%= will_paginate @qs %>
+</div>
 <div class="center">
   <%= link_to(new_q_path) do %>
   <span class="btn<% if vote_no %> rev<% end %>"><span class="icon-plus"></span> Add New Q?</span>

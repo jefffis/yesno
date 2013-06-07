@@ -1,4 +1,7 @@
 Yesnooo::Application.routes.draw do
+ 
+  match '/:page', :controller => 'qs', :action => 'index'
+
   resources :qs
 
   root :to => 'qs#index'

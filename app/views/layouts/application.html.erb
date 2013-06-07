@@ -19,7 +19,10 @@ url = request.fullpath.split('?')
 		<!--<meta name="robots" content="noodp,noydir" />
 		<link rel="robots" href="robots.txt" />-->
 </head>
-<body<% if url[0] == '/' %> class="home"<% else %> class="inner"<% end %>>
+<% if url[0].split('/')[1] != 'qs' %>
+<% q_total = @qs.length %>
+<% end %>
+<body class="<% if url[0] == '/' %> home<% else %> inner<% end %><% if url[0].split('/')[1] != 'qs' && q_total < 7 %> short<% end %>">
 	<% if !cookies[:welcome] %>
 	<% if url[0] == '/' %>
 		<div class="welcome<% if vote_no %> blue<% end %>" id="welcome">
@@ -33,7 +36,7 @@ url = request.fullpath.split('?')
 	<% end %>
 	<% end %>
 	<div class="wrapper">
-		<header>
+		<header id="v">
 			<!--<h2><%= link_to('/') do %>
 				<strong data-vote="yes"<% if vote_yes %> class="active"<% end %>>yes <span class="icon-thumbs-up"></span></strong>
 				<em>:</em>
@@ -64,7 +67,7 @@ url = request.fullpath.split('?')
 				<% end %>
 			</h2>
 			<% if vote_yes || vote_no %>
-				<div class="center sm" id="remove-params" data-url="<%= request.fullpath.split('?')[0] %>"><% if vote_no %>True<% else %>False<% end %> questions filtered out <span class="icon-remove"></span></div><% end %>
+				<div class="center sm" id="remove-params" data-url="<%= request.fullpath.split('?')[0] %>"><% if vote_no %>yes<% else %>no<% end %> questions filtered out <span class="icon-remove"></span></div><% end %>
 		</header>
 		<div class="main" role="main">
 			<%= yield %>
@@ -82,13 +85,6 @@ url = request.fullpath.split('?')
 		setTimeout(function(){
 			$('#welcome').fadeOut(700);
 		}, 700);
-	</script>
-	<% end %>
-	<% if !url[0] == '/' && cookies[@q.unique_id] %>
-	<script>
-		//setTimeout(function(){
-			//$('#voted').fadeOut(700);
-		//}, 100);
 	</script>
 	<% end %>
 </body>
