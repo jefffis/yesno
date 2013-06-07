@@ -764,6 +764,11 @@ header {
 			background: darken($main-pink, 50%);
 		}
 	}
+	.not-voted {
+		img {
+			opacity: .25;
+		}
+	}
 }
 
 .linkable {
