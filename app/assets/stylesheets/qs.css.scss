@@ -680,6 +680,17 @@ header {
 			letter-spacing: -1px;
 		}
 	}
+	.totesvotes {
+		position: absolute;
+		bottom: 1em;
+		right: 0;
+		text-align: center;
+		color: white;
+		opacity: .75;
+		font: normal 100%/1 $sans;
+		width: 100%;
+		//letter-spacing: -1px;
+	}
 	.votes {
 		position: absolute;
 		bottom: 0;
@@ -689,11 +700,21 @@ header {
 		color: white;
 		background: rgba(0,0,0,0.3);
 	}
-	img, .img {
+	/*img, */.img {
 		width: 100%;
 		display: block;
 		//opacity: .5;
 		//-webkit-transition: all .2s ease-in-out;
+	}
+	img {
+		display: block;
+		margin: 0 auto;
+		position: relative;
+		top: 10px;
+		opacity: .75;
+		-webkit-filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15));
+		-moz-filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15));
+		filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15));
 	}
 	.img {
 		height: 520px;
@@ -1180,6 +1201,14 @@ form {
 			font-size: 2em;
 			top: 1em;
 			left: 1em;
+		}
+		img {
+			top: 0;
+		}
+		&.yes {
+			img {
+				top: 22px;
+			}
 		}
 	}
 	.linkable {
