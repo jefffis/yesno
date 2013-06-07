@@ -105,15 +105,38 @@ header {
 		max-width: 60px;
 		display: none;
 	}*/
-	.icon-bolt {
+	.about, .popular {
 		position: absolute;
-		top: 1em;
-		left: 1em;
+		top: 2.5em;
+		left: 2em;
 		cursor: pointer;
 		opacity: .5;
-		font-size: 1.5em;
+		//font-size: 1.5em;
+		font: bold 110%/1 $sans;
 		&:active {
 			opacity: .35;
+		}
+		&:hover span {
+			color: $main-pink;
+		}
+		em {
+			font-style: normal;
+			display: none;
+		}
+	}
+	.popular {
+		//text-align: right;
+		//left: auto;
+		right: 2em;
+		left: auto;
+		//top: 4.5em;
+		//font: bold 80%/1 $sans;
+		letter-spacing: -1px;
+		&:hover span {
+			color: $main-pink;
+		}
+		&:active {
+			//top: 2.3em;
 		}
 	}
 	img {
@@ -805,7 +828,7 @@ footer {
 			//opacity: .5;
 		}
 	}
-	span.icon-bolt {
+	.about {
 		display: block;
 		cursor: pointer;
 		padding: 0 0 1.5em;
@@ -1180,6 +1203,16 @@ form {
 			font-size: 100%;
 			top: 2em;
 			left: 2em;
+		}
+		.about, .popular {
+			font-size: 100%;
+			//top: 2em;
+			&:active {
+				//top: 2.05em;
+			}
+			em {
+				display: inline;
+			}
 		}
 	}
 	.info {

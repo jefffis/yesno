@@ -30,7 +30,7 @@ class Q < ActiveRecord::Base
 		self.unique_id
 	end
 
-	attr_accessible :description, :title, :votes, :image_yes, :image_no, :unique_id, :votes_no
+	attr_accessible :description, :title, :votes, :image_yes, :image_no, :unique_id, :votes_no, :votes_totes
 
 	self.per_page = 10
 

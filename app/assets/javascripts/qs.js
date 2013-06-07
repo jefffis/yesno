@@ -45,6 +45,7 @@ $(function(){
 	var $no = $('#no');
 	var $vote_no = $('#q_votes_no');
 	var $vote_no_total = parseInt($vote_no.val());
+	var $q_votes_totes = $('#q_votes_totes');
 	var $votable = $('.votable');
 	var $form = $('.edit_q');
 	var $form_url = $form.attr('action');
@@ -66,6 +67,8 @@ $(function(){
 
 	var $info_show = $('#info-show');
 	var $info = $('#info');
+	var $popular = $('#popular');
+	var $popular_rmv = $('#popular-rmv');
 
 	var $rmv_vote_thx = $voted.find('h2');
 
@@ -103,6 +106,12 @@ $(function(){
 		e.preventDefault();
 		location.href = '/?no=noooo';
 	});
+	$popular.on('click',function(){
+		location.href = '/?pop=ular';
+	});
+	$popular_rmv.on('click',function(){
+		location.href = '/';
+	});
 
 	$remove_params.on('click',function(){
 		var $this = $(this);
@@ -123,6 +132,7 @@ $(function(){
 		var $this = $(this);
 		$vote_yes_total = $vote_yes_total + 1;
 		$vote_yes.val($vote_yes_total);
+		$q_votes_totes.val($vote_yes_total + $vote_no_total);
 		$.post($form_url, $form.serialize());
 		$this.addClass('votering');
 		SetCookie($h1_title,'yes');
@@ -138,6 +148,7 @@ $(function(){
 		var $this = $(this);
 		$vote_no_total = $vote_no_total + 1;
 		$vote_no.val($vote_no_total);
+		$q_votes_totes.val($vote_yes_total + $vote_no_total);
 		$.post($form_url, $form.serialize());
 		$this.addClass('votering');
 		SetCookie($h1_title,'no');
