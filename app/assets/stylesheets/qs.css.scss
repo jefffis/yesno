@@ -691,6 +691,17 @@ header {
 		width: 100%;
 		//letter-spacing: -1px;
 	}
+	.under {
+		.totesvotes {
+			opacity: 1;
+			letter-spacing: -2px;
+			font-weight: bold;
+			em {
+				font-weight: normal;
+				font-style: normal;
+			}
+		}
+	}
 	.votes {
 		position: absolute;
 		bottom: 0;
@@ -711,10 +722,11 @@ header {
 		margin: 0 auto;
 		position: relative;
 		top: 10px;
-		opacity: .75;
+		opacity: .85;
 		-webkit-filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15));
 		-moz-filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15));
 		filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15));
+		-webkit-transform: translateZ(0);
 	}
 	.img {
 		height: 520px;

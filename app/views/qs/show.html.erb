@@ -54,7 +54,7 @@ no = (no_v.to_f / total.to_f) * 100
 			<div class="h-wrap under">
 				<div>
 					<h2<% if @q.image_yes.blank? %> class="no-img"<% end %>>
-						<span><% if @q.votes < 1 %>No<% else %><%= @q.votes %><% end %><% if @q.votes > 1 || @q.votes == 0 %> votes<% else %> vote<% end %></span>
+						<span class="totesvotes"><% if @q.votes < 1 %>No<% else %><%= @q.votes %><% end %><% if @q.votes > 1 || @q.votes == 0 %> <em>votes</em><% else %> <em>vote</em><% end %></span>
 					</h2>
 				</div>
 			</div>
@@ -87,7 +87,7 @@ no = (no_v.to_f / total.to_f) * 100
 			<div class="h-wrap under">
 				<div>
 					<h2<% if @q.image_no.blank? %> class="no-img"<% end %>>
-						<span><% if @q.votes_no < 1 %>No<% else %><%= @q.votes_no %><% end %><% if @q.votes_no > 1 || @q.votes_no == 0 %> votes<% else %> vote<% end %></span>
+						<span class="totesvotes"><% if @q.votes_no < 1 %>No<% else %><%= @q.votes_no %><% end %><% if @q.votes_no > 1 || @q.votes_no == 0 %> <em>votes</em><% else %> <em>vote</em><% end %></span>
 					</h2>
 				</div>
 			</div>
