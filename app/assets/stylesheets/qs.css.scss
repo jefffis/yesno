@@ -580,6 +580,12 @@ header {
 			-webkit-animation: fadeTwirl .2s ease-in-out 1;
 			-moz-animation: fadeTwirl .2s ease-in-out 1;
 			animation: fadeTwirl .2s ease-in-out 1;
+		}
+		img {
+			opacity: 0;
+			-webkit-animation: fadeTwirl .2s ease-in-out 1;
+			-moz-animation: fadeTwirl .2s ease-in-out 1;
+			animation: fadeTwirl .2s ease-in-out 1;
 		}	
 	}
 
