@@ -446,6 +446,21 @@ header {
 	}
 }
 
+.none {
+	opacity: .75;
+}
+.not-valid {
+	h1 {
+		opacity: .75;
+	}
+	a {
+		color: $main-pink;
+	}
+	p {
+		margin-bottom: 1em;
+	}
+}
+
 .welcome {
 	height: 100%;
 	width: 100%;
@@ -464,11 +479,12 @@ header {
 		vertical-align: middle;
 		//background: $main-pink;
 		background: #040407;
-		text-shadow: 0 0 1px rgba(0,0,0,0.2), 0 0 2px rgba(0,0,0,0.1), 0 0 10px rgba(0,0,0,0.1);
+		//text-shadow: 0 0 1px rgba(0,0,0,0.2), 0 0 2px rgba(0,0,0,0.1), 0 0 10px rgba(0,0,0,0.1);
 		text-align: center;
+		cursor: pointer;
 		h2 {
 			width: 100%;
-			margin: 0 auto;
+			margin: 0 auto 2.5em;
 		}
 		img {
 			display: inline;
@@ -477,9 +493,24 @@ header {
 				top: 2em;
 				left: .3em;
 				z-index: 50;
+				//width: 283px;
 			}
 			&.no {
+				//top: .3em;
 				z-index: 51;
+				//width: 185px;
+			}
+		}
+		p {
+			max-width: 24.5em;
+			margin: 0 auto 1em;
+			padding: 0 1.5em;
+			//text-align: right;
+			color: rgba(255,255,255,0.6);
+			//position: relative;
+			//left: 2em;
+			span {
+				color: white;
 			}
 		}
 	}
@@ -860,6 +891,7 @@ footer {
 	//background: rgba(255,255,0,0.25);
 	//padding: 1em;
 	margin: 1.5em auto 1em;
+	padding: 0 1.5em;
 	//color: white;
 	font: bold 150%/1 $sans;
 	text-align: center;
@@ -869,16 +901,26 @@ footer {
 	span {
 		opacity: .75;
 		font-weight: normal;
+		& + span {
+			display: inline-block;
+			padding-top: .25em;
+		}
 	}
 	max-width: 600px;
 	&.yes {
 		span {
 			color: $main-pink;
+			& + span {
+				color: #555;
+			}
 		}
 	}
 	&.no {
 		span {
 			color: darken($main-blue, 25%);
+			& + span {
+				color: #555;
+			}
 		}
 	}
 }
@@ -1302,6 +1344,29 @@ form {
 			border-bottom: 0;
 			h1 {
 				font-size: 2.5em;
+			}
+		}
+	}
+	.welcome {
+		div {
+			h2 {
+				margin-bottom: 0;
+			}
+			img {
+				&.yes {
+					top: 2em;
+					left: .3em;
+					width: 283px;
+				}
+				&.no {
+					top: -1.95em;
+					width: 185px;
+				}
+			}
+			p {
+				position: relative;
+				left: 2em;
+				text-align: right;
 			}
 		}
 	}

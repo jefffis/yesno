@@ -6,11 +6,11 @@ class QsController < ApplicationController
   def index
 
     if params[:pop]
-      @qs = Q.paginate(:page => params[:page]).order('votes_totes DESC').all
+      @qs = Q.paginate(:page => params[:page]).order('votes_totes DESC').all(:select => "*", :conditions => ["votes_totes > 25"])
     elsif params[:yes]
-      @qs = Q.paginate(:page => params[:page]).order('id DESC').all( :select => "*", :conditions => ["votes > votes_no"])
+      @qs = Q.paginate(:page => params[:page]).order('id DESC').all(:select => "*", :conditions => ["votes > votes_no"])
     elsif params[:no]
-      @qs = Q.paginate(:page => params[:page]).order('id DESC').all( :select => "*", :conditions => ["votes < votes_no"])
+      @qs = Q.paginate(:page => params[:page]).order('id DESC').all(:select => "*", :conditions => ["votes < votes_no"])
     else
       #@qs = Q.all
       @qs = Q.paginate(:page => params[:page]).order('id DESC').all

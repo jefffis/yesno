@@ -2,6 +2,7 @@
 vote_yes = params[:yes]
 vote_no = params[:no]
 %>
+<% if @qs.length > 0 %>
 <div class="center">
   <% if @q_next %>
   <%= link_to('/qs/'+@q_next.unique_id) do %>
@@ -9,7 +10,8 @@ vote_no = params[:no]
   <% end %>
   <% end %>
 </div>
-<div id="load">
+<% end %>
+<% if @qs.length > 0 %>
 <ul class="listings">
 <% @qs.each do |q| %>
 <%
@@ -35,8 +37,10 @@ no_v = q.votes_no
   </li>
 <% end %>
 </ul>
+<% else %>
+<h1 class="none">Shucks, ain&rsquo;t no posts that meet that criteria.</h1>
+<% end %>
 <%= will_paginate @qs %>
-</div>
 <div class="center btm">
   <%= link_to(new_q_path) do %>
   <span class="btn<% if vote_no %> rev<% end %>"><span class="icon-plus"></span> Add New Q?</span>

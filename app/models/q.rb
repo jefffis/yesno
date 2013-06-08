@@ -3,7 +3,7 @@ class Q < ActiveRecord::Base
 	has_attached_file :image_yes,
 		:styles => 
 		{
-			:large => "1000x1000>",
+			#:large => "1000x1000>",
 			:thumb => "400x400#"
 		},
 		:convert_options => {
@@ -13,7 +13,7 @@ class Q < ActiveRecord::Base
 	has_attached_file :image_no,
 		:styles => 
 		{
-			:large => "1000x1000>",
+			#:large => "1000x1000>",
 			:thumb => "400x400#"
 		},
 		:convert_options => {

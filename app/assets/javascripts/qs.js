@@ -72,6 +72,8 @@ $(function(){
 
 	var $rmv_vote_thx = $voted.find('h2');
 
+	var $welcome = $('#welcome');
+
 	/*var $next_page = $('.next_page');
 	var $previous_page = $('.previous_page');
 	//var $listings = $('#listings');
@@ -192,6 +194,12 @@ $(function(){
 		//var $this = $(this);
 		$(this).parent().find('span.chosen-file').remove();
 		$(this).parent().find('.label').removeClass('file');
+	});
+
+	$welcome.on('click',function(){
+		setTimeout(function(){
+			$welcome.fadeOut(700);
+		}, 250);
 	});
 
 });

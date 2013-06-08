@@ -1,4 +1,5 @@
-<h1>Edit <span><%= @q.title %></span></h1>
+<% if cookies[@q.unique_id+'-author'] == 'yes' %>
+<h1 class="none">Edit <span><%= @q.title %></span></h1>
 <%= render 'form' %>
 <div class="center del">
 	<%= link_to 'Delete this question?'.html_safe, @q, method: :delete, data: { confirm: 'Are you sure? All data will be gone for good.' } %>
@@ -11,3 +12,17 @@
 	<span class="icon-home"></span>
 	<% end %>
 </div>
+<% else %>
+<div class="not-valid">
+	<h1>Hmmm, looks like you didn&rsquo;t create this post.</h1>
+	<p>That means, you shouldn&rsquo;t be editing it either ☹.</p>
+	<div class="center btm">
+		<%= link_to(new_q_path) do %>
+		<span class="btn"><span class="icon-plus"></span> Add q</span>
+		<% end %>
+		<%= link_to('/') do %>
+		<span class="btn"><span class="icon-home"></span> Home</span>
+		<% end %>
+	</div>
+</div>
+<% end %>

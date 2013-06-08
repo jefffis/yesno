@@ -14,10 +14,9 @@
 ActiveRecord::Schema.define(:version => 20130607195331) do
 
   create_table "qs", :force => true do |t|
-    t.integer  "votes",                  :default => 0, :null => false
-    t.integer  "votes_no",               :default => 0, :null => false
     t.string   "title"
     t.text     "description"
+    t.integer  "votes",                  :default => 0, :null => false
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
     t.string   "image_yes_file_name"
@@ -29,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130607195331) do
     t.integer  "image_no_file_size"
     t.datetime "image_no_updated_at"
     t.string   "unique_id"
+    t.integer  "votes_no",               :default => 0, :null => false
     t.integer  "votes_totes",            :default => 0, :null => false
   end
 
