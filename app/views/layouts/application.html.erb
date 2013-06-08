@@ -2,9 +2,10 @@
 vote_yes = params[:yes]
 vote_no = params[:no]
 pop = params[:pop]
+srch = params[:search]
 url = request.fullpath.split('?')
 %>
-<%#= url[0].split('/')[1] %>
+<%#= url[0].split('/')[3] %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -23,7 +24,7 @@ url = request.fullpath.split('?')
 <% if url[0].split('/')[1] != 'qs' %>
 <% q_total = @qs.length %>
 <% end %>
-<body class="<% if url[0] == '/' %> home<% else %> inner<% end %><% if url[0].split('/')[1] != 'qs' && q_total < 7 %> short<% end %>">
+<body class="<% if url[0] == '/' %> home<% else %> inner<% end %><% if url[0].split('/')[1] != 'qs' && q_total < 7 %> short<% end %><% if url[0].split('/')[3] == 'edit' && !cookies[@q.unique_id+'-author'] %> short no-b<% end %>">
 	<% if !cookies[:welcome] %>
 	<% if url[0] == '/' %>
 		<div class="welcome<% if vote_no %> blue<% end %>" id="welcome">
@@ -45,7 +46,8 @@ url = request.fullpath.split('?')
 				<em>:</em>
 				<strong data-vote="no"<% if vote_no %> class="active"<% end %>>no <span class="icon-thumbs-down"></span></strong>
 			<% end %></h2>-->
-			<% if url[0] == '/' || url[0].split('/')[1] == 'q' %><div class="about" id="info-show"><span class="icon-bolt"></span> <em>about</em></div>
+			<div class="srch" id="srch"><span class="icon-search"></span> <em>search</em></div>
+			<% if url[0] == '/' || url[0].split('/')[1] == 'q' %><!--<div class="about" id="info-show"><span class="icon-bolt"></span> <em>about</em></div>-->
 			<div class="popular" id="popular<% if pop %>-rmv<% end %>"><span class="icon-<% if pop %>remove<% else %>star n<% end %>"></span> <em>popular</em></div><% end %>
 			<div class="info" id="info">
 				<div>
@@ -72,13 +74,34 @@ url = request.fullpath.split('?')
 			</h2>
 			<% if @qs %>
 			<% if @qs.length > 0 %>
-			<% if vote_yes || vote_no || pop %>
-				<div class="center sm" id="remove-params" data-url="<%= request.fullpath.split('?')[0] %>"><% if !pop %><% if vote_no %>yes<% elsif vote_yes %>no<% end %> questions filtered out<% else %>viewing popular questions<% end %> <span class="icon-remove"></span></div><% end %>
+			<% if vote_yes || vote_no || pop || srch %>
+				<div class="center sm" id="remove-params" data-url="<%= request.fullpath.split('?')[0] %>">
+					<% if vote_yes || vote_no %>
+						<% if vote_no %>yes
+						<% elsif vote_yes %>no<% end %>
+						questions filtered out <span class="icon-remove"></span>
+					<% end %>
+					<% if pop %>viewing popular questions (25+ votes) <span class="icon-remove"></span>
+						<% elsif srch %>searching qs like &lsquo;<em><%= srch %></em>&rsquo; <span class="icon-remove"></span>
+					<% end %>
+				</div>
+				<% end %>
 			<% end %>
 			<% end %>
 		</header>
 		<div class="main" role="main">
 			<%= yield %>
+		</div>
+		<div class="search-form" id="search-form">
+			<form action="/">
+				<fieldset>
+					<input type="search" name="search" id="search" placeholder="Looking for something?" autocapitalize="off" autocorrect="off" />
+				</fieldset>
+				<fieldset>
+					<input type="submit" value="Get a&rsquo; searchin&rsquo;">
+				</fieldset>
+				<span class="icon-remove" id="rvm-srch"></span>
+			</form>
 		</div>
 	</div>
 	<%= javascript_include_tag "application" %>

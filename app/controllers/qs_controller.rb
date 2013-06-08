@@ -7,6 +7,8 @@ class QsController < ApplicationController
 
     if params[:pop]
       @qs = Q.paginate(:page => params[:page]).order('votes_totes DESC').all(:select => "*", :conditions => ["votes_totes > 25"])
+    elsif params[:search]
+      @qs = Q.paginate(:page => params[:page]).order('id DESC').where("title LIKE '%#{params[:search]}%'")
     elsif params[:yes]
       @qs = Q.paginate(:page => params[:page]).order('id DESC').all(:select => "*", :conditions => ["votes > votes_no"])
     elsif params[:no]

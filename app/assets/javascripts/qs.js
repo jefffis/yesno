@@ -74,6 +74,10 @@ $(function(){
 
 	var $welcome = $('#welcome');
 
+	var $srch = $('#srch');
+	var $search_form = $('#search-form');
+	var $rvm_srch = $('#rvm-srch');
+
 	/*var $next_page = $('.next_page');
 	var $previous_page = $('.previous_page');
 	//var $listings = $('#listings');
@@ -194,6 +198,16 @@ $(function(){
 		//var $this = $(this);
 		$(this).parent().find('span.chosen-file').remove();
 		$(this).parent().find('.label').removeClass('file');
+	});
+
+	$srch.on('click',function(){
+		$search_form.addClass('show');
+		$search_form.find('input[type=search]').focus();
+	});
+
+	$rvm_srch.on('click',function(){
+		$search_form.removeClass('show');
+		$search_form.find('input[type=search]').blur();
 	});
 
 	$welcome.on('click',function(){

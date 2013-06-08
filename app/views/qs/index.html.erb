@@ -1,8 +1,10 @@
 <%
 vote_yes = params[:yes]
 vote_no = params[:no]
+pop = params[:pop]
+srch = params[:search]
 %>
-<% if @qs.length > 0 %>
+<% if @qs.length > 0 && !vote_yes && !vote_no && !pop && !srch %>
 <div class="center">
   <% if @q_next %>
   <%= link_to('/qs/'+@q_next.unique_id) do %>
