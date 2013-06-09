@@ -5,17 +5,21 @@ pop = params[:pop]
 srch = params[:search]
 %>
 <% if @qs.length > 0 && !vote_yes && !vote_no && !pop && !srch %>
-<div class="center">
-  <% if @q_next %>
-  <%= link_to('/qs/'+@q_next.unique_id) do %>
-  <span class="btn<% if vote_no %> rev<% end %>"><span class="icon-repeat"></span> Randomize</span>
-  <% end %>
-  <% end %>
+<%
+#featured
+if @q_feature %>
+<div class="featured" style="background-image: url(<%= @q_feature.image_yes.url(:thumb) %>); background-size: cover;">
+    <%= link_to('/qs/'+@q_feature.unique_id) do %>
+      <h1><%= @q_feature.title %></h1>
+    <% end %>
 </div>
+<% end %>
 <% end %>
 <% if @qs.length > 0 %>
 <ul class="listings">
-<% @qs.each do |q| %>
+<%
+# all qs
+@qs.each do |q| %>
 <%
 yes_v = q.votes
 no_v = q.votes_no
@@ -44,7 +48,14 @@ no_v = q.votes_no
 <% end %>
 <%= will_paginate @qs %>
 <div class="center btm">
+  <% if @qs.length > 0 && !vote_yes && !vote_no && !pop && !srch %>
+  <% if @q_next %>
+  <%= link_to('/qs/'+@q_next.unique_id) do %>
+  <span class="btn<% if vote_no %> rev<% end %>"><span class="icon-repeat"></span> Randomize</span>
+  <% end %>
+  <% end %>
+  <% end %>
   <%= link_to(new_q_path) do %>
-  <span class="btn<% if vote_no %> rev<% end %>"><span class="icon-plus"></span> Add New Q?</span>
+  <span class="btn<% if vote_no %> rev<% end %>"><span class="icon-plus"></span> Add?</span>
   <% end %>
 </div>

@@ -37,6 +37,7 @@ $main-blue: #4fccfd;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 html {
@@ -321,7 +322,7 @@ header {
 			color: $main-pink;
 		}
 		&:active {
-			top: 1px;
+			//top: 1px;
 		}
 		span {
 			position: relative;
@@ -344,6 +345,7 @@ header {
 		&:active {
 			color: rgba(255,255,255,0.75);
 			background: darken($main-blue, 20%);
+			box-shadow: 0 1px 3px rgba(0,0,0,0.25) inset;
 		}
 		&.rev {
 			background: $main-pink;
@@ -932,6 +934,42 @@ footer {
 	}
 }
 
+.featured {
+	height: 300px;
+	width: 100%;
+	background-color: $main-blue;
+	margin: 2em auto;
+	display: table;
+	&:active {
+		opacity: .75;
+	}
+	a {
+		display: table-cell;
+		vertical-align: middle;
+		width: 100%;
+		height: 100%;
+		text-decoration: none;
+		color: white;
+		background: rgba(0,0,0,0.5);
+		text-shadow: 0 1px 0 rgba(0,0,0,0.1), 0 2px 1px rgba(0,0,0,0.05);
+		&:hover {
+			background: rgba(0,0,0,0.6);
+		}
+		&:active {
+			color: rgba(255,255,255,0.75);
+			background: rgba(0,0,0,0.75);
+			box-shadow: 0 1px 3px rgba(0,0,0,0.35);
+			h1 {
+				position: relative;
+				top: 1px;
+			}
+		}
+	}
+	h1 {
+		margin: 0;
+	}
+}
+
 form {
 	width: 100%;
 	margin: 2em auto 2em;
@@ -974,7 +1012,11 @@ form {
 		}
 	}
 	.file {
-		display: none;
+		//display: none;
+		height: 0;
+		outline: none;
+		visibility: hidden;
+		margin-bottom: -26px;
 	}
 	.semi-visible {
 		display: inline;
@@ -1348,6 +1390,11 @@ form {
 				display: inline;
 			}
 		}
+	}
+	.featured {
+		height: 600px;
+		max-width: 600px;
+		margin: 2em auto 2.5em;
 	}
 	.info {
 		padding: 4em;

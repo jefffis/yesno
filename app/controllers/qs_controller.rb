@@ -5,6 +5,8 @@ class QsController < ApplicationController
   # GET /qs.json
   def index
 
+    @q_feature = Q.order('id DESC').all(:select => "*", :conditions => ["image_yes_file_name IS NOT NULL"]).first
+
     if params[:pop]
       @qs = Q.paginate(:page => params[:page]).order('votes_totes DESC').all(:select => "*", :conditions => ["votes_totes > 25"])
     elsif params[:search]

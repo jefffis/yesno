@@ -77,12 +77,13 @@ url = request.fullpath.split('?')
 			<% if vote_yes || vote_no || pop || srch %>
 				<div class="center sm" id="remove-params" data-url="<%= request.fullpath.split('?')[0] %>">
 					<% if vote_yes || vote_no %>
-						<% if vote_no %>yes
-						<% elsif vote_yes %>no<% end %>
-						questions filtered out <span class="icon-remove"></span>
+						showing
+						<% if vote_no %>&lsquo;<em>no</em>&rsquo;
+						<% elsif vote_yes %>&lsquo;<em>yes</em>&rsquo;<% end %>
+						 only <span class="icon-remove"></span>
 					<% end %>
-					<% if pop %>viewing popular questions (25+ votes) <span class="icon-remove"></span>
-						<% elsif srch %>searching qs like &lsquo;<em><%= srch %></em>&rsquo; <span class="icon-remove"></span>
+					<% if pop %>25+ votes <span class="icon-remove"></span>
+						<% elsif srch %>results for &lsquo;<em><%= srch %></em>&rsquo; <span class="icon-remove"></span>
 					<% end %>
 				</div>
 				<% end %>
