@@ -86,6 +86,11 @@ $(function(){
 	var $load = $('#load');
 	var $featured = $('#featured');
 
+	var $data_zero = 0;
+	var $data_count = $('.count');
+	var $data_count_total = $data_count.data('count');
+	//alert($data_count.data('count'));
+
 	/*var $next_page = $('.next_page');
 	var $previous_page = $('.previous_page');
 	//var $listings = $('#listings');
@@ -109,6 +114,20 @@ $(function(){
 		$load.load($this_url+' #load');
 		//return false;
 	});*/
+
+	if($data_count){
+		var count = {
+	    digit: 0,
+		    increment: function() {
+		        var interval = setInterval(function() {
+		            if (++count.digit == $data_count_total)
+		                clearInterval(interval);
+		            	$data_count.text(count.digit);
+		        }, 10);
+		    }
+		};
+		count.increment();
+	}
 
 	$('#rld').on('click',function(){
 		//var $this = $(this);

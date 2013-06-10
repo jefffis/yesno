@@ -6,6 +6,12 @@ srch = params[:search]
 url = request.fullpath.split('?')
 fullurl = URI.escape(request.url)
 %>
+<% if @q %>
+<%
+yes_v = @q.votes
+no_v = @q.votes_no
+%>
+<% end %>
 <%#= url[0].split('/')[3] %>
 <!DOCTYPE html>
 <html>
