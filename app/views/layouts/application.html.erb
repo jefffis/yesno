@@ -33,7 +33,7 @@ no_v = @q.votes_no
 		<meta property="og:url" content="<%= fullurl %>" />
 		<meta property="og:site_name" content="yesno"/>
 		<meta property="og:image" content="<% if @q && !@q.image_yes.blank? %><%= @q.image_yes.url(:thumb) %><% else %>/assets/yesno-icon.png<% end %>" />
-		<meta property="og:description" content="yes is a simple Ruby on Rails app that allows users (without logging in) to vote on yes or no questions. They can also create their own and share them socailly or with friends." />
+		<meta property="og:description" content="<% if @q && !@q.description.blank? %><%= @q.description %><% else %>yes is a simple Ruby on Rails app that allows users (without logging in) to vote on yes or no questions. They can also create their own and share them socailly or with friends.<% end %>" />
 
 </head>
 <% if url[0].split('/')[1] != 'qs' %>
