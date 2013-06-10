@@ -78,6 +78,10 @@ $(function(){
 	var $search_form = $('#search-form');
 	var $rvm_srch = $('#rvm-srch');
 
+	var $share = $('#share');
+	var $sharing = $('#sharing');
+	var $cls = $('#cls');
+
 	var $rld = $('#rld');
 	var $load = $('#load');
 	var $featured = $('#featured');
@@ -230,6 +234,15 @@ $(function(){
 		setTimeout(function(){
 			$welcome.fadeOut(700);
 		}, 250);
+	});
+
+	$share.on('click',function(){
+		$sharing.addClass('show');
+		return false;
+	});
+
+	$cls.on('click',function(){
+		$sharing.removeClass('show');
 	});
 
 });

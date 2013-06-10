@@ -471,7 +471,7 @@ header {
 	}
 }
 
-.welcome {
+.welcome, .share {
 	height: 100%;
 	width: 100%;
 	display: table;
@@ -526,6 +526,48 @@ header {
 	}
 	&.blue div {
 		background: $main-blue;
+	}
+	a {
+		background: $main-pink;
+		color: white;
+		text-decoration: none;
+		font-size: 2em;
+		padding: .3em .5em .25em;
+		min-width: 1.75em;
+		margin-right: .3em;
+		display: inline-block;
+		line-height: 1;
+		text-shadow: 0 0 1px rgba(0,0,0,0.12), 0 0 5px rgba(0,0,0,0.075);
+		&:hover {
+			background: darken($main-pink, 7%);
+		}
+		&:active {
+			box-shadow: 0 1px 3px rgba(0,0,0,0.35) inset;
+			background: darken($main-pink, 10%);
+			color: rgba(255,255,255,0.75);
+		}
+	}
+	.cls {
+		display: block;
+		margin: 1em 0 0;
+		font-size: 1.75em;
+		color: $main-blue;
+		cursor: pointer;
+		&:hover {
+			color: darken($main-blue, 20%);
+		}
+		&:active {
+			color: darken($main-blue, 45%);
+		}
+	}
+}
+.share {
+	display: none;
+	div {
+		cursor: default;
+	}
+	&.show {
+		display: table;
 	}
 }
 

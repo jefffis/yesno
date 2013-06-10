@@ -156,14 +156,19 @@ no = (no_v.to_f / total.to_f) * 100
 		answer = 'no'
 		response = 'is+not+true'
 	end
+	if cookies[@q.unique_id] == 'yes'
+		response_m = 'is true'
+	else
+		response_m = 'is not true'
+	end
 	%>
-	<%= link_to '<span class="icon-share-alt"></span>'.html_safe, ('https://twitter.com/intent/tweet?text='+answer.capitalize+'+"'+text+'"+'+response+',+what+say+you?++&url='+url), :target => '_blank' %>
-	<!--<%= link_to('/') do %>
-	<span class="btn"><span class="icon-home"></span></span>
-	<% end %>-->
+	<!--<%= link_to '<span class="icon-share-alt"></span>'.html_safe, ('https://twitter.com/intent/tweet?text='+answer.capitalize+'+"'+text+'"+'+response+',+what+say+you?++&url='+url), :target => '_blank' %>-->
+	<%= link_to('') do %>
+	<span class="btn" id="share"><span class="icon-share-alt"></span></span>
+	<% end %>
 	<% if cookies[@q.unique_id+'-author'] == 'yes' %>
 	<%= link_to(edit_q_path(@q)) do %>
-	<span class="icon-pencil"></span> <em>edit</em>
+	<span class="icon-pencil"></span>
 	<% end %>
 	<% end %>
 	<%= link_to(@q_next.unique_id) do %>
@@ -178,12 +183,11 @@ no = (no_v.to_f / total.to_f) * 100
 </div>
 <% end %>
 
-<div class="center">
-	<!--<%= link_to(new_q_path) do %>
-	<span class="icon-plus"></span>
-	<% end %>
-	<%= link_to(qs_path) do %>
-	<span class="icon-home"></span>
-	<% end %>-->
-	<%# end %>
+<div class="share" id="sharing">
+	<div>
+		<%= link_to '<span class="icon-twitter"></span>'.html_safe, ('https://twitter.com/intent/tweet?text='+answer.capitalize+'+"'+text+'"+'+response+',+what+say+you?++&url='+url), :target => '_blank' %>
+		<%= link_to '<span class="icon-facebook"></span>'.html_safe, ('https://www.facebook.com/sharer/sharer.php?u='+url), :target => '_blank' %>
+		<%= mail_to '', '<span class="icon-envelope"></span>'.html_safe, :subject => answer.capitalize+' "'+@q.title+'" '+response_m+', what say you? '+url %>
+		<span class="icon-remove cls" id="cls"></span>
+	</div>
 </div>
