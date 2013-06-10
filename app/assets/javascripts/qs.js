@@ -251,7 +251,13 @@ $(function(){
 
 	$welcome.on('click',function(){
 		setTimeout(function(){
-			$welcome.fadeOut(700);
+			$welcome.fadeOut(200).removeClass('show');
+		}, 100);
+	});
+
+	$info_show.on('click',function(){
+		setTimeout(function(){
+			$welcome.fadeIn(200).css('display','table').addClass('show');
 		}, 250);
 	});
 

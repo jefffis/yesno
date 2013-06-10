@@ -40,20 +40,6 @@ no_v = @q.votes_no
 <% q_total = @qs.length %>
 <% end %>
 <body class="<% if url[0] == '/' %> home<% else %> inner<% end %><% if url[0].split('/')[1] != 'qs' && q_total < 7 %> short<% end %><% if url[0].split('/')[3] == 'edit' && !cookies[@q.unique_id+'-author'] %> short no-b<% end %>">
-	<% if !cookies[:welcome] %>
-	<% if url[0] == '/' %>
-		<div class="welcome<% if vote_no %> blue<% end %>" id="welcome">
-			<div>
-				<h2>
-					<img src="/assets/yes.svg" class="yes" />
-					<img src="/assets/no.svg" class="no" />
-				</h2>
-				<p><span>yesno</span> is a simple Ruby on Rails app that allows users (without logging in) to vote on yes or no questions. They can also create their own and share them socailly or with friends. Enjoy y&rsquo;all.</p>
-				<p>Click <span>yes</span> in the logo to show only questions with a majority of <span>yes</span> answers. Do the same for <span>no</span>. Click anywhere to continue.</p>
-			</div>
-		</div>
-	<% end %>
-	<% end %>
 	<div class="wrapper">
 		<header id="v">
 			<!--<h2><%= link_to('/') do %>
@@ -64,12 +50,6 @@ no_v = @q.votes_no
 			<div class="srch" id="srch"><span class="icon-search"></span> <em>search</em></div>
 			<% if url[0] == '/' || url[0].split('/')[1] == 'q' %><!--<div class="about" id="info-show"><span class="icon-bolt"></span> <em>about</em></div>-->
 			<div class="popular" id="popular<% if pop %>-rmv<% end %>"><span class="icon-<% if pop %>remove<% else %>star n<% end %>"></span> <em>popular</em></div><% end %>
-			<div class="info" id="info">
-				<div>
-					<strong>yesno</strong> is a simple Ruby on Rails app that allows users (without logging in) to vote on yes or no questions. They can also create their own and share them socailly or with friends. Enjoy y&rsquo;all.
-					<a href="http://jefff.co" target="_blank"><span>made with love by</span> jefff</a>
-				</div>
-			</div>
 			<h2><%
 				# if either filter is active
 				if vote_no || vote_yes %>
@@ -98,7 +78,7 @@ no_v = @q.votes_no
 						 only <span class="icon-remove"></span>
 					<% end %>
 					<% if pop %>25+ votes <span class="icon-remove"></span>
-						<% elsif srch %>results for &lsquo;<em><%= srch %></em>&rsquo; <span class="icon-remove"></span>
+					<% elsif srch %>results for &lsquo;<em><%= srch %></em>&rsquo; <span class="icon-remove"></span>
 					<% end %>
 				</div>
 				<% end %>
@@ -107,6 +87,7 @@ no_v = @q.votes_no
 		</header>
 		<div class="main" role="main">
 			<%= yield %>
+			<div class="about<% if url[0] == '/' %> hm<% end %>" id="info-show"><span class="icon-bolt"></span> <em>about</em></div>
 		</div>
 		<div class="search-form" id="search-form">
 			<form action="/">
@@ -118,6 +99,16 @@ no_v = @q.votes_no
 				</fieldset>
 				<span class="icon-remove" id="rvm-srch"></span>
 			</form>
+		</div>
+	</div>
+	<div class="welcome<% if vote_no %> blue<% end %><% if !cookies[:welcome] %> show<% end %>" id="welcome">
+		<div>
+			<h2>
+				<img src="/assets/yes.svg" class="yes" />
+				<img src="/assets/no.svg" class="no" />
+			</h2>
+			<p><span>yesno</span> is a simple Ruby on Rails app that allows users (without logging in) to vote on yes or no questions. They can also create their own and share them socailly or with friends. Enjoy y&rsquo;all.</p>
+			<p>Click <span>yes</span> in the logo to show only questions with a majority of <span>yes</span> answers. Do the same for <span>no</span>. Click anywhere to continue.</p>
 		</div>
 	</div>
 	<%= javascript_include_tag "application" %>
