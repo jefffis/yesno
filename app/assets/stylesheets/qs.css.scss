@@ -478,7 +478,7 @@ header {
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 30;
+	z-index: 110;
 	//opacity: 0;
 	//-webkit-animation: fadeOut 1s ease-in-out 1;
 	div {
@@ -934,6 +934,31 @@ footer {
 	}
 }
 
+@-webkit-keyframes load {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@-moz-keyframes load {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(360deg);
+	}
+}
+@keyframes load {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
 .featured {
 	height: 300px;
 	width: 100%;
@@ -958,6 +983,11 @@ footer {
 		opacity: .7;
 		&:active {
 			opacity: .5;
+		}
+		&.load {
+			-webkit-animation: load .2s ease-in-out 1;
+			-moz-animation: load .2s ease-in-out 1;
+			animation: load .2s ease-in-out 1;
 		}
 	}
 	a {

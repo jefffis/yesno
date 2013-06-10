@@ -146,9 +146,6 @@ no = (no_v.to_f / total.to_f) * 100
 
 <% if @q_next %>
 <div class="vote-again">
-	<%= link_to(@q_next.unique_id) do %>
-	<span class="btn"><span class="icon-repeat"></span> <em>&rsquo;nother</em></span>
-	<% end %>
 	<%
 	url = URI.escape(request.url)
 	text = URI.escape(@q.title)
@@ -169,8 +166,14 @@ no = (no_v.to_f / total.to_f) * 100
 	<span class="icon-pencil"></span> <em>edit</em>
 	<% end %>
 	<% end %>
+	<%= link_to(@q_next.unique_id) do %>
+	<span class="btn"><span class="icon-repeat"></span><!-- <em>&rsquo;nother</em>--></span>
+	<% end %>
 	<%= link_to(new_q_path) do %>
 	<span class="icon-plus"></span>
+	<% end %>
+	<%= link_to('/') do %>
+	<span class="btn"><span class="icon-home"></span></span>
 	<% end %>
 </div>
 <% end %>

@@ -4,7 +4,7 @@ i=0
 @qs.each_with_index do |q,i| %>
 	<% if i == 1 %><% break %><% end %>
 	<div class="featured" style="background-image: url(<%= q.image_yes.url(:thumb) %>); background-size: cover;">
-	    <span class="icon-refresh rld" id="rld"></span>
+	    <span class="icon-repeat rld" id="rld"></span>
 	    <%= link_to('/qs/'+q.unique_id) do %>
 	      <h1><%= q.title %></h1>
 	    <% end %>
