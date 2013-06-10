@@ -78,6 +78,10 @@ $(function(){
 	var $search_form = $('#search-form');
 	var $rvm_srch = $('#rvm-srch');
 
+	var $rld = $('#rld');
+	var $load = $('#load');
+	var $featured = $('#featured');
+
 	/*var $next_page = $('.next_page');
 	var $previous_page = $('.previous_page');
 	//var $listings = $('#listings');
@@ -101,6 +105,18 @@ $(function(){
 		$load.load($this_url+' #load');
 		//return false;
 	});*/
+
+	$('#rld').on('click',function(){
+		//var $this = $(this);
+		//var $this_url = $this.attr('href');
+		//$featured.css('background-image','none');
+		//$featured.find('h1').html('Loading&hellip;');
+		//setTimeout(function(){
+			//$load.load('/qr'+' #load');
+		//},250);
+		$('#load').load('/qr'+' #load');
+		$.getScript('/assets/application.js');
+	});
 
 	//console.log($.cookie($h1_title));
 

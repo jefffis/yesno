@@ -941,8 +941,24 @@ footer {
 	margin: 2em auto 0;
 	display: table;
 	border-top: 3px solid #ccc;
+	position: relative;
 	&:active {
 		opacity: .75;
+	}
+	.rld {
+		position: absolute;
+		color: white;
+		cursor: pointer;
+		top: 0;
+		right: 0;
+		padding: .65em;
+		font-size: 1.75em;
+		z-index: 101;
+		//background: rgba(0,0,0,0.5);
+		opacity: .7;
+		&:active {
+			opacity: .5;
+		}
 	}
 	a {
 		display: table-cell;
@@ -954,6 +970,8 @@ footer {
 		color: white;
 		background: rgba(0,0,0,0.5);
 		text-shadow: 0 1px 0 rgba(0,0,0,0.1), 0 2px 1px rgba(0,0,0,0.05);
+		position: relative;
+		z-index: 2;
 		&:hover {
 			background: rgba(0,0,0,0.6);
 		}
@@ -969,9 +987,6 @@ footer {
 	}
 	h1 {
 		margin: 0;
-	}
-	& + .listings {
-		margin-top: 0;
 	}
 }
 
@@ -1251,6 +1266,10 @@ form {
 	}
 }
 
+.load + .listings {
+	margin-top: 0;
+}
+
 .voted, #notice, #error_explanation, .del {
 	background: rgba(255,255,0,0.25);
 	//border: 1px solid rgba(200,100,25,0.1);
@@ -1398,9 +1417,13 @@ form {
 	}
 	.featured {
 		height: 600px;
-		max-width: 600px;
+		max-width: 1000px;
+		width: 100%;
 		margin: 2em auto -3px;
 		border: 3px solid #ccc;
+		.rld {
+			font-size: 1em;
+		}
 	}
 	.info {
 		padding: 4em;

@@ -5,7 +5,7 @@ class QsController < ApplicationController
   # GET /qs.json
   def index
 
-    @q_feature = Q.order('id DESC').all(:select => "*", :conditions => ["image_yes_file_name IS NOT NULL"]).first
+    @q_feature = Q.order('id DESC').all(:select => "*", :conditions => ["image_yes_file_name IS NOT NULL"]).shuffle.first
 
     if params[:pop]
       @qs = Q.paginate(:page => params[:page]).order('votes_totes DESC').all(:select => "*", :conditions => ["votes_totes > 25"])
@@ -26,6 +26,12 @@ class QsController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @qs }
     end
+  end
+
+  def reload
+
+    @qs = Q.all.shuffle
+
   end
 
   # GET /qs/1

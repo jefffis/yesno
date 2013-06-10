@@ -3,16 +3,23 @@ vote_yes = params[:yes]
 vote_no = params[:no]
 pop = params[:pop]
 srch = params[:search]
+url = request.fullpath.split('?')
 %>
+<%#= url[0] %>
 <% if @qs.length > 0 && !vote_yes && !vote_no && !pop && !srch %>
+<% if  url[0] == '/' || url[0] == '/q/1' %>
 <%
 #featured
 if @q_feature %>
-<div class="featured" style="background-image: url(<%= @q_feature.image_yes.url(:thumb) %>); background-size: cover;">
+<div id="load" class="load">
+<div class="featured" id="featured" style="background-image: url(<%= @q_feature.image_yes.url(:thumb) %>); background-size: cover;">
+    <span class="icon-refresh rld" id="rld"></span>
     <%= link_to('/qs/'+@q_feature.unique_id) do %>
       <h1><%= @q_feature.title %></h1>
     <% end %>
 </div>
+</div>
+<% end %>
 <% end %>
 <% end %>
 <% if @qs.length > 0 %>
@@ -27,7 +34,7 @@ no_v = q.votes_no
   <!--<li
   <%# if !!q.image_yes.blank? %> style="background-image:url(<%#= q.image_yes.url(:large) %>); background-size: cover;" class="img-filter"<%# end %>
   >-->
-  <li>
+  <li<% if url[0] == '/' && @q_feature.unique_id == q.unique_id %> class="hide"<% end %>>
     <%= link_to(q) do %>
     <!--<h1<%# if !q.image_yes.blank? %> class="white"<%# end %><%# if !q.image_no.blank? %> class="white"<%# end %>><%= q.title %></h1>-->
     <h1<% if vote_no || !vote_no && no_v > yes_v %> class="no"<% end %>><%= q.title %></h1>
