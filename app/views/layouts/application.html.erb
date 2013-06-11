@@ -124,7 +124,11 @@ no_v = @q.votes_no
 	<%= yield %>
 	<% end %>
 	<% end %>
+	<% if url[0].split('/')[3] != 'yes' && url[0].split('/')[3] != 'no' %>
 	<%= javascript_include_tag "application" %>
+	<% else %>
+	<%= javascript_include_tag "jquery" %>
+	<% end %>
 	<% if notice %>
 	<script>
 	SetCookie('<%= @q.unique_id %>-author','yes');
@@ -135,19 +139,67 @@ no_v = @q.votes_no
 		SetCookie('welcome',1);
 	</script>
 	<% end %>
+	<% if url[0].split('/')[3] == 'yes' || url[0].split('/')[3] == 'no' %>
+	<script>
+		function SetCookie(cookieName,cookieValue) {
+			document.cookie = cookieName+"="+escape(cookieValue)
+			+ ";expires=Sun, 17 Jan 2038 19:14:07 GMT; path=/";
+		}
+	</script>
+	<% end %>
 	<% if url[0].split('/')[3] == 'yes' %>
+	<% if cookies[@q.unique_id] %>
+	<script>
+		location.href = '/qs/<%= @q.unique_id %>';
+	</script>
+	<% else %>
 	<script>
 		// set cookie & redirect to page immediately
 		SetCookie('<%= @q.unique_id %>','yes');
-		location.href = '/qs/<%= @q.unique_id %>';
+		SetCookie('welcome',1);
+		$(function(){
+			var $form = $('.edit_q');
+			var $form_url = $form.attr('action');
+			var $vote_yes = $('#q_votes');
+			var $vote_yes_total = parseInt($vote_yes.val());
+			var $vote_no = $('#q_votes_no');
+			var $vote_no_total = parseInt($vote_no.val());
+			var $q_votes_totes = $('#q_votes_totes');
+			$vote_yes_total = $vote_yes_total + 1;
+			$vote_yes.val($vote_yes_total);
+			$q_votes_totes.val($vote_yes_total + $vote_no_total);
+			$.post($form_url, $form.serialize());
+			location.href = '/qs/<%= @q.unique_id %>';
+		});
 	</script>
 	<% end %>
+	<% end %>
 	<% if url[0].split('/')[3] == 'no' %>
+	<% if cookies[@q.unique_id] %>
+	<script>
+		location.href = '/qs/<%= @q.unique_id %>';
+	</script>
+	<% else %>
 	<script>
 		// set cookie & redirect to page immediately
 		SetCookie('<%= @q.unique_id %>','no');
-		location.href = '/qs/<%= @q.unique_id %>';
+		SetCookie('welcome',1);
+		$(function(){
+			var $form = $('.edit_q');
+			var $form_url = $form.attr('action');
+			var $vote_yes = $('#q_votes');
+			var $vote_yes_total = parseInt($vote_yes.val());
+			var $vote_no = $('#q_votes_no');
+			var $vote_no_total = parseInt($vote_no.val());
+			var $q_votes_totes = $('#q_votes_totes');
+			$vote_no_total = $vote_no_total + 1;
+			$vote_no.val($vote_no_total);
+			$q_votes_totes.val($vote_yes_total + $vote_no_total);
+			$.post($form_url, $form.serialize());
+			location.href = '/qs/<%= @q.unique_id %>';
+		});
 	</script>
+	<% end %>
 	<% end %>
 </body>
 </html>
