@@ -1,16 +1,10 @@
-<div id="load" class="load">
-<%
+[<%
 i=0
 @qs.each_with_index do |q,i| %>
-	<% if i == 1 %><% break %><% end %>
-	<div class="featured" style="background-image: url(<%= q.image_yes.url(:thumb) %>); background-size: cover;">
-	    <span class="icon-beaker rld" id="rld"></span>
-	    <%= link_to('/qs/'+q.unique_id) do %>
-	      <h1><%= q.title %></h1>
-	    <% end %>
-	</div>
+	{
+		"title": <%= raw(q.title.to_json) %>,
+		"link": <%= raw(q.unique_id.to_json) %>
+	}<% if i == @qs.length - 1 %><% else %>,<% end %>
 <%
-i+=0
-end %>
-<%= javascript_include_tag "application" %>
-</div>
+i+=1
+end %>]

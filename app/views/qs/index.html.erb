@@ -13,7 +13,7 @@ url = request.fullpath.split('?')
 if @q_feature %>
 <div id="load" class="load">
 <div class="featured" id="featured" style="background-image: url(<%= @q_feature.image_yes.url(:thumb) %>); background-size: cover;">
-    <span class="icon-beaker rld" id="rld"></span>
+    <!--<span class="icon-beaker rld" id="rld"></span>-->
     <%= link_to('/qs/'+@q_feature.unique_id) do %>
       <h1><%= @q_feature.title %></h1>
     <% end %>
@@ -23,7 +23,7 @@ if @q_feature %>
 <% end %>
 <% end %>
 <% if @qs.length > 0 %>
-<ul class="listings">
+<ul class="listings" id="listings">
 <%
 # all qs
 @qs.each do |q| %>
@@ -31,37 +31,32 @@ if @q_feature %>
 yes_v = q.votes
 no_v = q.votes_no
 %>
-  <!--<li
-  <%# if !!q.image_yes.blank? %> style="background-image:url(<%#= q.image_yes.url(:large) %>); background-size: cover;" class="img-filter"<%# end %>
-  >-->
   <li<% if url[0] == '/' && @q_feature.unique_id == q.unique_id %> class="hide"<% end %>>
     <%= link_to(q) do %>
-    <!--<h1<%# if !q.image_yes.blank? %> class="white"<%# end %><%# if !q.image_no.blank? %> class="white"<%# end %>><%= q.title %></h1>-->
     <h1<% if vote_no || !vote_no && no_v > yes_v %> class="no"<% end %>><%= q.title %></h1>
     <% if q.votes > 0 || q.votes_no > 0 %><small>
       <% if q.votes > 0 %><em><span class="icon-thumbs-up"></span> <%= q.votes %> votes</em><% end %>
       <% if q.votes_no > 0 %><em><span class="icon-thumbs-down"></span> <%= q.votes_no %> votes</em><% end %>
     </small><% end %>
-    <!--<p><%= q.description %></p>-->
-    <%#= q.votes %> 
-    <%#= link_to 'Edit', edit_q_path(q) %> 
-    <%#= link_to 'Destroy', q, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   </li>
 <% end %>
 </ul>
+<%# if @qs.length > 10 && !vote_yes && !vote_no && !pop && !srch %>
+<!--<div class="center"><span class="ldmr" id="ldmr">Load More <span class="icon-repeat"></span></span></div>-->
+<%# end %>
 <% else %>
 <h1 class="none">Shucks, ain&rsquo;t no posts that meet that criteria.</h1>
 <% end %>
 <%= will_paginate @qs %>
 <div class="center btm">
-  <% if @qs.length > 0 && !vote_yes && !vote_no && !pop && !srch %>
-  <% if @q_next %>
-  <%= link_to('/qs/'+@q_next.unique_id) do %>
-  <span class="btn<% if vote_no %> rev<% end %>"><span class="icon-repeat"></span> Randomize</span>
-  <% end %>
-  <% end %>
-  <% end %>
+  <!--<%# if @qs.length > 0 && !vote_yes && !vote_no && !pop && !srch %>
+  <%# if @q_next %>
+  <%#= link_to('/qs/'+@q_next.unique_id) do %>
+  <span class="btn<%# if vote_no %> rev<%# end %>"><span class="icon-repeat"></span> Randomize</span>
+  <%# end %>
+  <%# end %>
+  <%# end %>-->
   <%= link_to(new_q_path) do %>
   <span class="btn<% if vote_no %> rev<% end %>"><span class="icon-plus"></span> Add?</span>
   <% end %>

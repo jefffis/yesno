@@ -91,6 +91,9 @@ $(function(){
 	var $data_count = $('.count');
 	var $data_count_total = $data_count.data('count');
 
+	var $ldmr = $('#ldmr');
+	var $listings = $('#listings');
+
 	$html.removeClass('no-js');
 
 	//alert($data_count.data('count'));
@@ -118,6 +121,36 @@ $(function(){
 		$load.load($this_url+' #load');
 		//return false;
 	});*/
+
+	var $this_num = 0;
+	var $start = 0;
+	var $limit = 10;
+	var $data_i = 0;
+
+	// add load more button to homepage via JSON
+	$ldmr.on('click',function(){
+		var $this = $(this);
+		$start = $start * $this_num;
+		$this_num++;
+		$limit = $limit * $this_num;
+		$.get('/qr', function(data){
+			var $data = JSON.parse(data);
+			var $data_l = Math.ceil($data.length / 5);
+			$data_i++;
+			for($start;$start<$limit;$start++){
+				if($data[$start]){
+					$listings.append('<li><a href="/qs/'+$data[$start]["link"]+'"><h1>'+$data[$start]["title"]+'</h1></a></li>');
+				}
+				console.log($start,$limit);
+			}
+			if($data_i==$data_l){
+				$this.hide();
+			}
+		})
+		.fail(function(){
+			$listings.append('<li class="error"><h1>Ooops, something went wrong.</h1></li>');
+		});
+	});
 
 	if($data_count){
 		var count = {

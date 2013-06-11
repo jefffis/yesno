@@ -417,6 +417,24 @@ header {
 	}
 }
 
+.ldmr {
+	display: inline-block;
+	line-height: 1.2;
+	padding: .5em 1em;
+	margin: .5em auto 1em;
+	background: rgba(0,0,0,0.1);
+	opacity: .65;
+	cursor: pointer;
+	font-size: 1.25em;
+	&:hover {
+		background: rgba(0,0,0,0.2);
+		color: #040407;
+	}
+	&:active {
+		background: rgba(0,0,0,0.4);
+	}
+}
+
 .vote-again {
 	//position: absolute;
 	//top: 1em;

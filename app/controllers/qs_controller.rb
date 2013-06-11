@@ -3,6 +3,7 @@ require 'uri'
 class QsController < ApplicationController
   # GET /qs
   # GET /qs.json
+
   def index
 
     @q_feature = Q.order('id DESC').all(:select => "*", :conditions => ["image_yes_file_name IS NOT NULL"]).shuffle.first
@@ -16,7 +17,8 @@ class QsController < ApplicationController
     elsif params[:no]
       @qs = Q.paginate(:page => params[:page]).order('id DESC').all(:select => "*", :conditions => ["votes < votes_no"])
     else
-      #@qs = Q.all
+      #limit = 10
+      #@qs = Q.order('id DESC').limit(limit) -- for load more button
       @qs = Q.paginate(:page => params[:page]).order('id DESC').all
     end
 
@@ -30,7 +32,13 @@ class QsController < ApplicationController
 
   def reload
 
-    @qs = Q.all.shuffle
+    #@qs = Q.all.shuffle
+    #limit = 10
+    #@qs = Q.order('id DESC').offset(limit).all
+    #respond_to do |format|
+      #format.html # index.html.erb
+      #format.json { render json: @qs }
+    #end
 
   end
 
