@@ -261,9 +261,7 @@ $(function(){
 	});
 
 	$info_show.on('click',function(){
-		setTimeout(function(){
-			$welcome.fadeIn(200).css('display','table').addClass('show');
-		}, 250);
+		$welcome.fadeIn(200).css('display','table').addClass('show');
 	});
 
 	$share.on('click',function(){
