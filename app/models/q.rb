@@ -4,20 +4,20 @@ class Q < ActiveRecord::Base
 		:styles => 
 		{
 			#:large => "1000x1000>",
-			:thumb => "400x400#"
+			:thumb => ["400x400#", :jpg]
 		},
 		:convert_options => {
-			:thumb => "-quality 65 -strip"
+			:thumb => "-quality 65 -strip -colorspace RGB"
 		}
 
 	has_attached_file :image_no,
 		:styles => 
 		{
 			#:large => "1000x1000>",
-			:thumb => "400x400#"
+			:thumb => ["400x400#", :jpg]
 		},
 		:convert_options => {
-			:thumb => "-quality 65 -strip"
+			:thumb => "-quality 65 -strip -colorspace RGB"
 		}
 
 	before_create :generate_unique_id
