@@ -531,6 +531,7 @@ header {
 			color: rgba(255,255,255,0.6);
 			//position: relative;
 			//left: 2em;
+			font-size: 90%;
 			span {
 				color: white;
 			}
@@ -662,6 +663,7 @@ header {
 	margin: 0 auto;
 	//-webkit-transition: all .2s ease-in-out;
 	cursor: pointer;
+	border-top: 3px solid #ccc;
 
 	&.votering {
 		.h-wrap {
@@ -686,6 +688,8 @@ header {
 
 	& + .votable {
 		clear: none;
+		border-top: 0;
+		border-bottom: 3px solid #ccc;
 	}
 
 	.icon-wrap, .h-wrap {
@@ -943,7 +947,7 @@ footer {
 	font: bold 175%/1 $sans;
 	opacity: .5;
 	position: relative;
-	padding-top: 1.35em;
+	padding: 1.35em 0;
 	&.hm {
 		padding-top: 1.1em	}
 	&:before {
@@ -1588,6 +1592,12 @@ form {
 		float: left;
 		max-height: 100%;
 		height: 562px;
+		border: 3px solid #ccc;
+		border-right: 0;
+		& + .votable {
+			border: 3px solid #ccc;
+			border-left: 0;
+		}
 		h2 {
 			font-size: 4em;
 			span {
@@ -1674,6 +1684,7 @@ form {
 				position: relative;
 				left: 2em;
 				text-align: right;
+				font-size: 100%;
 			}
 		}
 	}
