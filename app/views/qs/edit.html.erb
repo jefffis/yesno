@@ -1,4 +1,4 @@
-<%# if cookies[@q.unique_id+'-author'] == 'yes' %>
+<% if cookies[@q.unique_id+'-author'] == 'yes' %>
 <h1 class="none">Edit <span><%= @q.title %></span></h1>
 <%= render 'form' %>
 <div class="center del">
@@ -12,7 +12,7 @@
 	<span class="icon-home"></span>
 	<% end %>
 </div>
-<%# else %>
+<% else %>
 <div class="not-valid">
 	<h1>Hmmm, looks like you didn&rsquo;t create this post.</h1>
 	<p>That means, you shouldn&rsquo;t be editing it either ☹.</p>
@@ -25,4 +25,4 @@
 		<% end %>
 	</div>
 </div>
-<%# end %>
+<% end %>
