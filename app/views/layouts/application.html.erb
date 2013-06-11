@@ -14,7 +14,7 @@ no_v = @q.votes_no
 <% end %>
 <%#= url[0].split('/')[3] %>
 <!DOCTYPE html>
-<html>
+<html class="no-js<% if url[0].split('/')[3] == 'yes' || url[0].split('/')[3] == 'no' %> no-style<% end %>">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
@@ -41,6 +41,9 @@ no_v = @q.votes_no
 <% q_total = @qs.length %>
 <% end %>
 <body class="<% if url[0] == '/' %> home<% else %> inner<% end %><% if url[0].split('/')[1] != 'qs' && q_total < 7 %> short<% end %><% if url[0].split('/')[3] == 'edit' && !cookies[@q.unique_id+'-author'] %> short no-b<% end %>">
+	<%
+	# if not yes or no ping views; i.e. all other views
+	if url[0].split('/')[3] != 'yes' && url[0].split('/')[3] != 'no' %>
 	<div class="wrapper">
 		<header id="v">
 			<!--<h2><%= link_to('/') do %>
@@ -114,6 +117,13 @@ no_v = @q.votes_no
 			<p>Click <span>yes</span> in the logo to show only questions with a majority of <span>yes</span> answers. Do the same for <span>no</span>. Click anywhere to continue.</p>
 		</div>
 	</div>
+	<%
+	# if yes or no ping views
+	else %>
+	<% if url[0].split('/')[3] == 'yes' || url[0].split('/')[3] == 'no' %>
+	<%= yield %>
+	<% end %>
+	<% end %>
 	<%= javascript_include_tag "application" %>
 	<% if notice %>
 	<script>
@@ -123,6 +133,20 @@ no_v = @q.votes_no
 	<% if !cookies[:welcome] %>
 	<script>
 		SetCookie('welcome',1);
+	</script>
+	<% end %>
+	<% if url[0].split('/')[3] == 'yes' %>
+	<script>
+		// set cookie & redirect to page immediately
+		SetCookie('<%= @q.unique_id %>','yes');
+		location.href = '/qs/<%= @q.unique_id %>';
+	</script>
+	<% end %>
+	<% if url[0].split('/')[3] == 'no' %>
+	<script>
+		// set cookie & redirect to page immediately
+		SetCookie('<%= @q.unique_id %>','no');
+		location.href = '/qs/<%= @q.unique_id %>';
 	</script>
 	<% end %>
 </body>

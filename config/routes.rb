@@ -2,6 +2,8 @@ Yesnooo::Application.routes.draw do
  
   match '/q/:page', :controller => 'qs', :action => 'index'
   match '/qr/', :controller => 'qs', :action => 'reload'
+  match '/qs/:id/yes', :controller => 'qs', :action => 'yes'
+  match '/qs/:id/no', :controller => 'qs', :action => 'no'
 
   resources :qs
 

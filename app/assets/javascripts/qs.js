@@ -38,6 +38,7 @@ if ( !supports('filter') ) {
 
 $(function(){
 
+	var $html = $('html');
 	var $vote = $('#vote');
 	var $yes = $('#yes');
 	var $vote_yes = $('#q_votes');
@@ -89,6 +90,9 @@ $(function(){
 	var $data_zero = 0;
 	var $data_count = $('.count');
 	var $data_count_total = $data_count.data('count');
+
+	$html.removeClass('no-js');
+
 	//alert($data_count.data('count'));
 
 	/*var $next_page = $('.next_page');

@@ -203,9 +203,7 @@ no = (no_v.to_f / total.to_f) * 100
 	end
 	%>
 	<!--<%= link_to '<span class="icon-share-alt"></span>'.html_safe, ('https://twitter.com/intent/tweet?text='+answer.capitalize+'+"'+text+'"+'+response+',+what+say+you?++&url='+url), :target => '_blank' %>-->
-	
 	<span class="btn link" id="share"><span class="icon-share-alt"></span></span>
-	
 	<% if cookies[@q.unique_id+'-author'] == 'yes' %>
 	<%= link_to(edit_q_path(@q)) do %>
 	<span class="icon-pencil"></span>
@@ -228,6 +226,10 @@ no = (no_v.to_f / total.to_f) * 100
 		<%= link_to '<span class="icon-twitter"></span>'.html_safe, ('https://twitter.com/intent/tweet?text='+answer.capitalize+'+"'+text+'"+'+response+',+what+say+you?++&url='+url), :target => '_blank' %>
 		<%= link_to '<span class="icon-facebook"></span>'.html_safe, ('https://www.facebook.com/sharer/sharer.php?u='+CGI.escape(request.url)), :target => '_blank' %>
 		<%= mail_to '', '<span class="icon-envelope"></span>'.html_safe, :subject => answer.capitalize+' "'+@q.title+'" '+response_m+', what say you? '+url %>
+		<h3 class="shr">Share a Yes vote link?</h3>
+		<p class="shr"><span class="icon-link"></span> <%= request.url %>/yes</p>
+		<h3 class="shr">Share a No vote link?</h3>
+		<p class="shr"><span class="icon-link"></span> <%= request.url %>/no</p>
 		<span class="icon-remove cls" id="cls"></span>
 	</div>
 </div>

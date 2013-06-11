@@ -47,6 +47,18 @@ class QsController < ApplicationController
     end
   end
 
+  def yes
+
+    @q = Q.find_by_unique_id(params[:id])
+
+  end
+
+  def no
+
+    @q = Q.find_by_unique_id(params[:id])
+
+  end
+
   # GET /qs/new
   # GET /qs/new.json
   def new

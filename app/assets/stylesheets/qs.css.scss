@@ -53,6 +53,10 @@ html {
 	//border-bottom-color: $main-pink;
 	//border-right-color: $main-blue;
 	//border-left-color: $main-blue;
+	&.no-style {
+		border: 0;
+		text-align: center;
+	}
 }
 
 body {
@@ -538,6 +542,19 @@ header {
 			span {
 				color: white;
 			}
+		}
+	}
+	.shr {
+		margin: 1.5em auto 1em;
+	}
+	p.shr {
+		margin-top: -.75em;
+		margin-bottom: 2em;
+		letter-spacing: normal;
+		color: white;
+		span {
+			left: -5px;
+			opacity: .75;
 		}
 	}
 	&.blue div {
