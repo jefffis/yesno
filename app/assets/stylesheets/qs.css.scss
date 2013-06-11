@@ -422,8 +422,7 @@ header {
 	em {
 		font-style: normal;
 	}
-	a {
-		color: #555;
+	a, .link {
 		text-decoration: none;
 		background: none;
 		//margin: 0 0 1em;
@@ -451,6 +450,10 @@ header {
 				font-weight: bold;
 			}
 		}
+	}
+	.link {
+		cursor: pointer;
+		//padding: 0 .25em;
 	}
 }
 
@@ -1048,6 +1051,7 @@ footer {
 	display: table;
 	border-top: 3px solid #ccc;
 	position: relative;
+	overflow: hidden;
 	/*&:active {
 		opacity: .75;
 	}*/
@@ -1055,20 +1059,30 @@ footer {
 		position: absolute;
 		color: white;
 		cursor: pointer;
-		top: 0;
-		right: 0;
-		padding: .65em;
+		top: -.5em;
+		right: -1.85em;
+		padding: 1em 2em .5em;
 		font-size: 1.75em;
 		z-index: 101;
-		//background: rgba(0,0,0,0.5);
+		background: rgba(0,0,0,0.5);
+		-webkit-transform: rotate(45deg);
+		-moz-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		transform: rotate(45deg);
 		opacity: .7;
 		&:active {
 			opacity: .5;
 		}
-		&.load {
+		&.load:before {
 			-webkit-animation: load .2s ease-in-out 1;
 			-moz-animation: load .2s ease-in-out 1;
 			animation: load .2s ease-in-out 1;
+		}
+		&:before {
+			-webkit-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			-ms-transform: rotate(-45deg);
+			transform: rotate(-45deg);
 		}
 	}
 	a {
@@ -1576,6 +1590,8 @@ form {
 		border: 3px solid #ccc;
 		.rld {
 			font-size: 1.25em;
+			top: -.5em;
+			right: -1.7em;
 		}
 	}
 	.info {
@@ -1718,6 +1734,9 @@ form {
 			//font-size: 100%;
 			padding: 6px 8px 7px;
 			line-height: 1;
+		}
+		.link {
+			padding: 0 .25em;
 		}
 	}
 	.wrap {

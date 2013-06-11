@@ -13,7 +13,7 @@ url = request.fullpath.split('?')
 if @q_feature %>
 <div id="load" class="load">
 <div class="featured" id="featured" style="background-image: url(<%= @q_feature.image_yes.url(:thumb) %>); background-size: cover;">
-    <span class="icon-repeat rld" id="rld"></span>
+    <span class="icon-beaker rld" id="rld"></span>
     <%= link_to('/qs/'+@q_feature.unique_id) do %>
       <h1><%= @q_feature.title %></h1>
     <% end %>

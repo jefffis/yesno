@@ -137,6 +137,7 @@ $(function(){
 		//setTimeout(function(){
 			//$load.load('/qr'+' #load');
 		//},250);
+		//$(this).addClass('load');
 		$('#load').load('/qr'+' #load');
 		$.getScript('/assets/application.js');
 	});

@@ -68,9 +68,9 @@ no = (no_v.to_f / total.to_f) * 100
 <% else %>
 <div class="overall<% if yes > no %> yes<% elsif no > yes %> no<% end %> t">
 	<% if yes > no %>
-	<strong class="count" id="count" data-count="<%= yes.to_s.split('.')[0] %>"><noscript><%= yes.to_s.split('.')[0] %></noscript></strong>% <span>of peeps say yes;</span>
+	<strong class="count" id="count" data-count="<%= yes.to_s.split('.')[0] %>">0<noscript><%= yes.to_s.split('.')[0] %></noscript></strong>% <span>of peeps say yes;</span>
 	<% elsif no > yes %>
-	<strong class="count" id="count" data-count="<%= no.to_s.split('.')[0] %>"><noscript><%= no.to_s.split('.')[0] %></noscript></strong>% <span>of peeps say no;</span>
+	<strong class="count" id="count" data-count="<%= no.to_s.split('.')[0] %>">0<noscript><%= no.to_s.split('.')[0] %></noscript></strong>% <span>of peeps say no;</span>
 	<% else %>
 	<span>The ppl are</span> split 50/50;
 	<% end %>
@@ -203,9 +203,9 @@ no = (no_v.to_f / total.to_f) * 100
 	end
 	%>
 	<!--<%= link_to '<span class="icon-share-alt"></span>'.html_safe, ('https://twitter.com/intent/tweet?text='+answer.capitalize+'+"'+text+'"+'+response+',+what+say+you?++&url='+url), :target => '_blank' %>-->
-	<%= link_to('') do %>
-	<span class="btn" id="share"><span class="icon-share-alt"></span></span>
-	<% end %>
+	
+	<span class="btn link" id="share"><span class="icon-share-alt"></span></span>
+	
 	<% if cookies[@q.unique_id+'-author'] == 'yes' %>
 	<%= link_to(edit_q_path(@q)) do %>
 	<span class="icon-pencil"></span>
