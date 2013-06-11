@@ -1207,6 +1207,7 @@ form {
 		outline: 3px solid #ccc;
 		-webkit-appearance: none;
 		-webkit-border-radius: 0;
+		font-family: sans-serif;
 	}
 	input:focus, textarea:focus {
 		outline: 3px solid #555;
@@ -1220,12 +1221,14 @@ form {
 		padding-bottom: .5em;
 		cursor: pointer;
 		letter-spacing: -1px;
+		font: bold 125%/1 $sans;
 	}
 	input[type=submit] {
 		outline: 0;
 		background: $main-pink;
 		color: white;
-		letter-spacing: -1px;
+		letter-spacing: 0;
+		font: bold 125%/1 $sans;
 		//font-weight: bold;
 		&:hover {
 			background: darken($main-pink, 7%);
@@ -1264,6 +1267,7 @@ form {
 			cursor: pointer;
 			background: white;
 			letter-spacing: -1px;
+			font: bold 125%/1 $sans;
 			&.file {
 				display: none;
 			}
@@ -1787,5 +1791,11 @@ form {
 	}
 	.wrap {
 		margin: 0;
+	}
+}
+
+@media screen and (max-height:47em) and (min-width:40em){
+	.featured {
+		height: 500px;
 	}
 }
