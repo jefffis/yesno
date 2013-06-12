@@ -7,6 +7,15 @@ $sans2: 'Carrois Gothic', 'Helvetica Neue', Arial, sans-serif;
 $main-pink: #C50080;
 $main-blue: #4fccfd;
 
+::-moz-selection {
+	background: rgba(0,0,0,0.15);
+	color: #040407;
+}
+::selection {
+	background: rgba(0,0,0,0.15);
+	color: #040407;
+}
+
 @font-face {
   font-family: 'Archivo Narrow';
   font-style: normal;
