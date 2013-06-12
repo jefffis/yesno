@@ -34,7 +34,7 @@ no_v = @q.votes_no
 		<meta property="og:type" content="vote" />
 		<meta property="og:url" content="<%= fullurl %>" />
 		<meta property="og:site_name" content="yesno"/>
-		<meta property="og:image" content="<% if @q && !@q.image_yes.blank? %><%= @q.image_yes.url(:thumb) %><% else %>/assets/yesno-icon.png<% end %>" />
+		<meta property="og:image" content="<% if @q && !@q.image_yes.blank? %><%= @q.image_yes.url(:original) %><% else %>/assets/yesno-icon.png<% end %>" />
 		<meta property="og:description" content="<% if @q && !@q.description.blank? %><%= @q.description %><% else %>yes is a simple Ruby on Rails app that allows users (without logging in) to vote on yes or no questions. They can also create their own and share them socailly or with friends.<% end %>" />
 
 </head>
@@ -50,9 +50,9 @@ no_v = @q.votes_no
 	<div class="wrapper">
 		<header id="v">
 			<!--<h2><%= link_to('/') do %>
-				<strong data-vote="yes"<% if vote_yes %> class="active"<% end %>>yes <span class="icon-thumbs-up"></span></strong>
+				<strong data-vote="yes"<% if vote_yes %> class="active"<% end %>>yes <span class="icon-originals-up"></span></strong>
 				<em>:</em>
-				<strong data-vote="no"<% if vote_no %> class="active"<% end %>>no <span class="icon-thumbs-down"></span></strong>
+				<strong data-vote="no"<% if vote_no %> class="active"<% end %>>no <span class="icon-originals-down"></span></strong>
 			<% end %></h2>-->
 			<div class="srch" id="srch"><span class="icon-search"></span> <em>search</em></div>
 			<% if url[0] == '/' || url[0].split('/')[1] == 'q' %><!--<div class="about" id="info-show"><span class="icon-bolt"></span> <em>about</em></div>-->
