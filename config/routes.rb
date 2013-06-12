@@ -4,6 +4,7 @@ Yesnooo::Application.routes.draw do
   match '/qr/', :controller => 'qs', :action => 'reload'
   match '/qs/:id/yes', :controller => 'qs', :action => 'yes'
   match '/qs/:id/no', :controller => 'qs', :action => 'no'
+  match '/about', :controller => 'qs', :action => 'about'
 
   resources :qs
 

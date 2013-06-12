@@ -39,6 +39,7 @@ if ( !supports('filter') ) {
 $(function(){
 
 	var $html = $('html');
+	var $body = $('body');
 	var $vote = $('#vote');
 	var $yes = $('#yes');
 	var $vote_yes = $('#q_votes');
@@ -288,13 +289,15 @@ $(function(){
 	});
 
 	$welcome.on('click',function(){
-		setTimeout(function(){
-			$welcome.fadeOut(200).removeClass('show');
-		}, 100);
+		$html.removeClass('block');
+		$body.removeClass('block');
+		$welcome.removeClass('show');
 	});
 
 	$info_show.on('click',function(){
-		$welcome.fadeIn(200).css('display','table').addClass('show');
+		$welcome.addClass('show');
+		$html.addClass('block');
+		$body.addClass('block');
 	});
 
 	$share.on('click',function(){
