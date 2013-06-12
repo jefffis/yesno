@@ -292,6 +292,39 @@ header {
 	opacity: .5;
 }
 
+.zoom, .ie {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	background: #040407;
+	color: white;
+	display: none;
+	padding: .3em;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.2), 0 2px 1px rgba(0,0,0,0.15);
+	font-weight: bold;
+	letter-spacing: -1px;
+	opacity: .5;
+}
+.ie {
+	position: fixed;
+	font-family: $sans;
+	font-weight: normal;
+	letter-spacing: 0;
+	display: block;
+	top: auto;
+	bottom: 0;
+	padding: 1em 1em 1.25em;
+	font-size: 100%;
+	z-index: 1000;
+	opacity: 1;
+	background: rgba(0,0,0,0.75);
+	span {
+		color: yellow;
+	}
+}
+
 .main {
 	font-size: 85%;
 	h1 {
@@ -326,6 +359,30 @@ header {
 		color: #777;
 		font-size: 100%;
 		padding: 0 1.5em;
+		.popular {
+			position: absolute;
+			top: 2.5em;
+			right: 2em;
+			color: #040407;
+			text-decoration: none;
+			letter-spacing: -1px;
+			font-family: $sans;
+			font-weight: bold;
+			opacity: .5;
+			em {
+				font-style: normal;
+				display: none;
+			}
+			span {
+				font-size: 125%;
+			}
+			&:hover span {
+				color: $main-pink;
+			}
+			&:active {
+				top: 2.55em;
+			}
+		}
 		h2 {
 			text-align: left;
 			color: #333;
@@ -388,7 +445,7 @@ header {
 					padding-bottom: 0;
 				}
 				&:last-child:after {
-					content: "";
+					content: ".";
 				}
 				&:before {
 					content: counter(this);
@@ -1733,6 +1790,22 @@ form {
 			}
 			em {
 				display: inline;
+			}
+		}
+	}
+	.main {
+		&.abt {
+			.popular {
+				top: 2.25em;
+				em {
+					display: inline;
+				}
+				span {
+					font-size: 100%;
+				}
+				&:active {
+					top: 2.3em;
+				}
 			}
 		}
 	}

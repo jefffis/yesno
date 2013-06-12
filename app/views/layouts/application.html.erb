@@ -44,6 +44,7 @@ no_v = @q.votes_no
 <% end %>
 <% end %>
 <body class="<% if url[0] == '/' %> home<% else %> inner<% end %><% if @qs %><% if url[0].split('/')[1] != 'qs' && q_total < 7 %> short<% end %><% end %><% if url[0].split('/')[3] == 'edit' && !cookies[@q.unique_id+'-author'] %> short no-b<% end %>"><% end %>
+	<!--[if lt IE 9]><div class="ie">D&rsquo;oh, looks like you&rsquo;re using an older version of Internet Explorer. <span>yesno</span> only supports IE9 and up. Or, you could use a more modern browser like <span>Google Chrome</span>, <span>Firefox</span>, <span>Safari</span> or <span>Opera</span>.</div><![endif]-->
 	<%
 	# if not yes or no ping views; i.e. all other views
 	if url[0].split('/')[3] != 'yes' && url[0].split('/')[3] != 'no' && url[0] != '/qr' %>
@@ -120,6 +121,7 @@ no_v = @q.votes_no
 			<p>Click <span>yes</span> in the logo to show only questions with a majority of <span>yes</span> answers. Do the same for <span>no</span>. Click anywhere to continue, enjoy y&rsquo;all. <a class="inline" href="http://jefff.co/" target="_blank">made by jefff</a></p>
 		</div>
 	</div>
+	<!--<div id="zoom" class="zoom">You&rsquo;re zoomed <strong id="level"></strong>; some elements might not look/function as intended.</div>-->
 	<%
 	# if yes or no ping views
 	else %>

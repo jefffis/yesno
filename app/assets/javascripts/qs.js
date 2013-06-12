@@ -3,6 +3,40 @@ function SetCookie(cookieName,cookieValue) {
 	+ ";expires=Sun, 17 Jan 2038 19:14:07 GMT; path=/";
 }
 
+/*(var zoomLevel = document.getElementsByTagName('body');
+window.onresize = function onresize() {
+	var r = DetectZoom.ratios();
+	var info = document.getElementById('zoom');
+	var rnum = Number(r.zoom);
+	var num = document.getElementById('level');
+	var heighttt = document.getElementById('height');
+	var device = document.getElementById('device');
+	if(rnum>1){
+		info.style.display = 'block';
+		num.innerHTML = 'in';
+		heighttt.style.display = 'block';
+		if('ontouchstart' in window){
+			device.innerHTML = 'You can reset the zoom level by pinch-zooming.';
+		}else{
+			device.innerHTML = 'You can reset the zoom level by pressing Ctl + 0 on your keyboard.';
+		}
+	}else if(rnum<1){
+		info.style.display = 'block';
+		num.innerHTML = 'out';
+		device.innerHTML = 'You can reset the zoom level by pressing Ctl + 0 on your keyboard.';
+		heighttt.style.display = 'none';
+		if('ontouchstart' in window){
+			device.innerHTML = 'You can reset the zoom level by pinch-zooming.';
+		}else{
+			device.innerHTML = 'You can reset the zoom level by pressing Ctl + 0 on your keyboard.';
+		}
+	}else{
+		info.style.display = 'none';
+		heighttt.style.display = 'none';
+	}
+}
+onresize();*/
+
 var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
 var is_explorer = navigator.userAgent.indexOf('MSIE') > -1;
 var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
