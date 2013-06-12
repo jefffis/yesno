@@ -383,6 +383,18 @@ header {
 				top: 2.55em;
 			}
 		}
+		.center {
+			a, .btn {
+				display: block;
+				padding: 0;
+				margin: 0;
+			}
+			.btn {
+				padding: .5em;
+				margin: 0 0 1em;
+				font-size: 80%;
+			}
+		}
 		h2 {
 			text-align: left;
 			color: #333;

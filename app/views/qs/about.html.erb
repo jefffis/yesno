@@ -29,4 +29,10 @@
 <h2>Questions or bugs?</h2>
 <p><a href="https://github.com/jefffis/yesno">Check the project on Github</a>, or <a href="mailto=whatis@yesorno.es">send me an email</a>. Otherwise, enjoy!</p>
 <%= link_to ('<span class="icon-home"></span> <em>home</em>').html_safe, '/', :class => 'popular' %>
+<hr />
+<div class="center">
+  <%= link_to(new_q_path) do %>
+  <span class="btn"><span class="icon-plus"></span> Let&rsquo;s add a question!</span>
+  <% end %>
+</div>
 <p>Lovingly made by <a class="inline" href="http://jefff.co/" target="_blank">jefff</a></p>
