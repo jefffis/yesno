@@ -329,7 +329,7 @@ header {
 	font-size: 85%;
 	h1 {
 		text-align: center;
-		font-size: 2.5em;
+		font-size: 2em;
 		padding: 0 .5em;
 		line-height: 1;
 		//margin-top: 0;
@@ -1806,6 +1806,9 @@ form {
 		}
 	}
 	.main {
+		h1 {
+			font-size: 2.5em;
+		}
 		&.abt {
 			.popular {
 				top: 2.25em;
