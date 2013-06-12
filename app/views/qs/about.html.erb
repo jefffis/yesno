@@ -26,13 +26,27 @@
 <p>Yep, you got it. This site extensively uses cookies to track your responses and actions. I don&rsquo;t do <span>ANYTHING</span> with them of course, and I won&rsquo;t ever sell the data or anyting like that. So yes, you could delete the cookie and game the system, but what would be the fun in that?</p>
 <p>Another reason for using cookies is so that you don&rsquo;t need to create another user account that you&rsquo;ll [probably] struggle to remember the password to, and it just makes the site easier to use and enjoy.</p>
 <hr />
-<h2>Questions or bugs?</h2>
-<p><a href="https://github.com/jefffis/yesno">Check the project on Github</a>, or <a href="mailto=whatis@yesorno.es">send me an email</a>. Otherwise, enjoy!</p>
-<%= link_to ('<span class="icon-home"></span> <em>home</em>').html_safe, '/', :class => 'popular' %>
-<hr />
+<h2>Want to add a question?</h2>
 <div class="center">
   <%= link_to(new_q_path) do %>
-  <span class="btn"><span class="icon-plus"></span> Let&rsquo;s add a question!</span>
+  <span class="btn"><span class="icon-plus"></span> Let&rsquo;s do it!</span>
   <% end %>
 </div>
+<hr />
+<h2>Questions or bugs?</h2>
+<p><a href="https://github.com/jefffis/yesno">Check the project on Github</a>, or <a href="mailto=whatis@yesorno.es">send me an email</a>. Otherwise, enjoy!</p>
+<hr />
+<h2>Sign up for updates?</h2>
+<p>I&rsquo;ll push out updates periodically (via Mailchimp, I &lt;3 them), so drop your name here if you&rsquo;re interested in that sort of thing; if not, ignore this part.</p>
+<form action="http://jefff.us6.list-manage.com/subscribe/post?u=abd01cbfa99953914467e6b5f&amp;id=11edb1ae39" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate target="_blank">
+	<fieldset>
+		<label for="email">
+			<input type="email" id="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your email" required>
+		</label>
+	</fieldset>
+	<fieldset>
+		<input type="submit" value="Join that hotness" />
+	</fieldset>
+</form>
+<%= link_to ('<span class="icon-home"></span> <em>home</em>').html_safe, '/', :class => 'popular' %>
 <p>Lovingly made by <a class="inline" href="http://jefff.co/" target="_blank">jefff</a></p>
