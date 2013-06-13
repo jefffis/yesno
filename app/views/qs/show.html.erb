@@ -172,6 +172,8 @@ no = (no_v.to_f / total.to_f) * 100
 	<% else %>
 	<span>The ppl are</span> split 50/50.
 	<% end %>
+	<span><% if @q.votes < 1 %>0<% else %><%= @q.votes %><% end %> yes <% if @q.votes > 1 || @q.votes == 0 %> votes<% else %> vote<% end %> &amp; 
+	<% if @q.votes_no < 1 %>0<% else %><%= @q.votes_no %><% end %> no <% if @q.votes_no > 1 || @q.votes_no == 0 %> votes<% else %> vote<% end %>.</span>
 </div>
 <% end %>
 <% end %>
