@@ -3,6 +3,7 @@ vote_yes = params[:yes]
 vote_no = params[:no]
 pop = params[:pop]
 srch = params[:search]
+usr = cookies[:usr]
 url = request.fullpath.split('?')
 fullurl = URI.escape(request.url)
 %>
@@ -21,7 +22,7 @@ no_v = @q.votes_no
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title><% if @q && url[0].split('/')[2] != 'new' %><%= @q.title %> | <% end %><% if url[0].split('/')[2] == 'new' %>Add a new question | <% end %>yesno<% if url[0] == '/' %> | Simple yes/no questions for settling big debates.<% end %></title>
+		<title><% if @q && url[0].split('/')[2] != 'new' %><%= @q.title %> | <% end %><% if url[0].split('/')[2] == 'new' %>Add a new question | <% elsif url[0] == '/u' %>Questions you've voted on | <% end %>yesno<% if url[0] == '/' %> | Simple yes/no questions for settling big debates.<% end %></title>
 		<!--<link href='http://fonts.googleapis.com/css?family=Carrois+Gothic|Varela+Round' rel='stylesheet' type='text/css' />-->
 		<%= stylesheet_link_tag "application", :media => "all" %>
 		<%= csrf_meta_tags %>
@@ -79,7 +80,12 @@ no_v = @q.votes_no
 			<% end %></h2>-->
 			<div class="srch" id="srch"><span class="icon-search"></span> <em>search</em></div>
 			<% if url[0] == '/' || url[0].split('/')[1] == 'q' %><!--<div class="about" id="info-show"><span class="icon-bolt"></span> <em>about</em></div>-->
-			<div class="popular" id="popular<% if pop %>-rmv<% end %>"><span class="icon-<% if pop %>remove<% else %>star n<% end %>"></span> <em>popular</em></div><% end %>
+			<% if !usr %>
+			<div class="popular" id="popular<% if pop %>-rmv<% end %>"><span class="icon-<% if pop %>remove<% else %>star n<% end %>"></span> <em>popular</em></div>
+			<% else %>
+			<a href="/u" class="popular usr"><span class="icon-user"></span> <em>your votes</em></a>
+			<% end %>
+			<% end %>
 			<h2><%
 				# if either filter is active
 				if vote_no || vote_yes %>

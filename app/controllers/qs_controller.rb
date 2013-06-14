@@ -42,6 +42,12 @@ class QsController < ApplicationController
 
   end
 
+  def user
+
+    @qs = Q.order('id DESC').all.shuffle
+
+  end
+
   # GET /qs/1
   # GET /qs/1.json
   def show

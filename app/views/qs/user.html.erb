@@ -1,0 +1,16 @@
+<% usr = cookies[:usr] %>
+<% if usr %>
+<h2 class="usr">Questions you&rsquo;ve voted on:</h2>
+<ul class="listings">
+<% @qs.each do |q| %>
+	<% if cookies[q.unique_id] %>
+	<li>
+		<%= link_to(q) do %>
+			<h1><%= q.title %></h1>
+		<% end %>
+	</li>
+	<% end %>
+<% end %>
+</ul>
+<%= link_to ('<span class="icon-home"></span> <em>home</em>').html_safe, '/', :class => 'popular hm' %>
+<% end %>

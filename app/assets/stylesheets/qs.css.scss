@@ -348,6 +348,13 @@ header {
 		//color: $main-pink;
 		//color: darken($main-pink, 20%);
 	}
+	h2 {
+		&.usr {
+			text-align: center;
+			font-size: 2em;
+			text-transform: uppercase;
+		}
+	}
 	p {
 		text-align: center;
 		padding: 0 2em;
@@ -371,30 +378,6 @@ header {
 		color: #777;
 		font-size: 100%;
 		padding: 0 1.5em;
-		.popular {
-			position: absolute;
-			top: 2.5em;
-			right: 2em;
-			color: #040407;
-			text-decoration: none;
-			letter-spacing: -1px;
-			font-family: $sans;
-			font-weight: bold;
-			opacity: .5;
-			em {
-				font-style: normal;
-				display: none;
-			}
-			span {
-				font-size: 125%;
-			}
-			&:hover span {
-				color: $main-pink;
-			}
-			&:active {
-				top: 2.55em;
-			}
-		}
 		.center {
 			a, .btn {
 				display: block;
@@ -530,6 +513,34 @@ header {
 				box-shadow: 0 1px 3px rgba(0,0,0,0.75) inset;
 			}
 		}
+	}
+}
+
+.popular {
+	position: absolute;
+	top: 2.5em;
+	right: 2em;
+	color: #040407;
+	text-decoration: none;
+	letter-spacing: -1px;
+	font-family: $sans;
+	font-weight: bold;
+	opacity: .5;
+	em {
+		font-style: normal;
+		display: none;
+	}
+	span {
+		font-size: 125%;
+	}
+	&:hover span {
+		color: $main-pink;
+	}
+	&:active {
+		top: 2.55em;
+	}
+	&.hm {
+		font-size: 125%;
 	}
 }
 
@@ -1864,18 +1875,24 @@ form {
 			font-size: 2.5em;
 		}
 		&.abt {
-			.popular {
-				top: 2.25em;
-				em {
-					display: inline;
-				}
-				span {
-					font-size: 100%;
-				}
-				&:active {
-					top: 2.3em;
-				}
-			}
+		}
+	}
+	.popular {
+		top: 2.25em;
+		em {
+			display: inline;
+		}
+		span {
+			font-size: 100%;
+		}
+		&:active {
+			top: 2.3em;
+		}
+		&.usr:active {
+			top: 2.55em;
+		}
+		&.hm {
+			font-size: 100%;
 		}
 	}
 	.featured {

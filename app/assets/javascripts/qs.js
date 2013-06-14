@@ -254,6 +254,7 @@ $(function(){
 		$.post($form_url, $form.serialize());
 		$this.addClass('votering');
 		SetCookie($h1_title,'yes');
+		SetCookie('usr',1);
 		setTimeout(function(){
 			window.location.href = window.location;
 		},250);
@@ -270,6 +271,7 @@ $(function(){
 		$.post($form_url, $form.serialize());
 		$this.addClass('votering');
 		SetCookie($h1_title,'no');
+		SetCookie('usr',1);
 		setTimeout(function(){
 			window.location.href = window.location;
 		},250);
