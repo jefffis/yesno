@@ -22,7 +22,7 @@ no_v = @q.votes_no
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title><% if @q && url[0].split('/')[2] != 'new' %><%= @q.title %> | <% end %><% if url[0].split('/')[2] == 'new' %>Add a new question | <% elsif url[0] == '/u' %>Questions you've voted on | <% end %>yesno<% if url[0] == '/' %> | Simple yes/no questions for settling big debates.<% end %></title>
+		<title><% if @q && url[0].split('/')[2] != 'new' %><%= @q.title %> | <% end %><% if url[0].split('/')[2] == 'new' %>Add a new question | <% elsif url[0] == '/u' %>Questions you've voted on | <% elsif url[0] == '/about' %>About <% end %>yesno<% if url[0] == '/' %> | Simple yes/no questions for settling big debates.<% end %></title>
 		<!--<link href='http://fonts.googleapis.com/css?family=Carrois+Gothic|Varela+Round' rel='stylesheet' type='text/css' />-->
 		<%= stylesheet_link_tag "application", :media => "all" %>
 		<%= csrf_meta_tags %>
