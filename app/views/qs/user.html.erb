@@ -1,9 +1,9 @@
 <% usr = cookies[:usr] %>
 <% if usr %>
-<h2 class="usr">Questions you&rsquo;ve voted on:</h2>
+<h2 class="usr">Questions you asked:</h2>
 <ul class="listings">
 <% @qs.each do |q| %>
-	<% if cookies[q.unique_id] %>
+	<% if cookies[q.unique_id+'-author'] %>
 	<li>
 		<%= link_to(q) do %>
 			<h1><%= q.title %></h1>
