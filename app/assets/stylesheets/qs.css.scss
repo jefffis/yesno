@@ -1147,6 +1147,12 @@ header {
 	}
 }
 
+.disqus_thread {
+	max-width: 39em;
+	padding: 0 2em;
+	margin: 2em auto;
+}
+
 .linkable {
 	clear: both;
 	display: block;
@@ -1869,6 +1875,9 @@ form {
 				display: inline;
 			}
 		}
+	}
+	.disqus_thread {
+		padding: 0;
 	}
 	.main {
 		h1 {
